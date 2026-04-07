@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { useContactForm } from '@/hooks/useContactForm'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
@@ -15,6 +16,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const { openContactForm } = useContactForm()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +70,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold px-6 transition-transform hover:scale-105">
+            <Button onClick={openContactForm} className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold px-6 transition-transform hover:scale-105">
               Book a Call
             </Button>
           </div>
@@ -99,7 +101,7 @@ export default function Header() {
                     </Link>
                   ))}
                 </nav>
-                <Button className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold w-full">
+                <Button onClick={() => { setMobileOpen(false); openContactForm() }} className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold w-full">
                   Book a Call
                 </Button>
               </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Scissors, Eye, Fingerprint, Target } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
+import { useContactForm } from '@/hooks/useContactForm'
 
 // Value cards data
 const values = [
@@ -28,6 +29,8 @@ const values = [
 ]
 
 export default function About() {
+  const { openContactForm } = useContactForm()
+
   return (
     <div className="min-h-screen">
       {/* Section 1: About Hero */}
@@ -142,6 +145,7 @@ export default function About() {
             </p>
             <Button
               size="lg"
+              onClick={openContactForm}
               className="bg-brand-coral hover:bg-brand-coral/90 text-white font-heading font-bold text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               Let's Talk

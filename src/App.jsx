@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import AnimatedRoutes from '@/components/layout/AnimatedRoutes'
 import ScrollToTop from '@/components/layout/ScrollToTop'
 import LoadingScreen from '@/components/layout/LoadingScreen'
+import { ContactFormProvider } from '@/hooks/useContactForm'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -20,14 +21,16 @@ function App() {
 
       {!loading && (
         <BrowserRouter>
-          <ScrollToTop />
-          <div className="min-h-screen bg-brand-charcoal flex flex-col">
-            <Header />
-            <main className="flex-1">
-              <AnimatedRoutes />
-            </main>
-            <Footer />
-          </div>
+          <ContactFormProvider>
+            <ScrollToTop />
+            <div className="min-h-screen bg-brand-charcoal flex flex-col">
+              <Header />
+              <main className="flex-1">
+                <AnimatedRoutes />
+              </main>
+              <Footer />
+            </div>
+          </ContactFormProvider>
         </BrowserRouter>
       )}
     </>

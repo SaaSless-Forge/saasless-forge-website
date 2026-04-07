@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { useContactForm } from '@/hooks/useContactForm'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +17,8 @@ const fadeUp = {
 }
 
 export function HeroSection() {
+  const { openContactForm } = useContactForm()
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Animated gradient blobs */}
@@ -35,17 +38,6 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-        >
-          <Badge className="bg-brand-violet/20 text-brand-violet border-brand-violet/30 hover:bg-brand-violet/30 text-sm px-4 py-1.5 mb-8">
-            Custom Software Studio
-          </Badge>
-        </motion.div>
-
         <motion.h1
           custom={1}
           variants={fadeUp}
@@ -86,6 +78,7 @@ export function HeroSection() {
         >
           <Button
             size="lg"
+            onClick={openContactForm}
             className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold text-base px-8 py-6 rounded-xl shadow-lg shadow-brand-coral/25 transition-all hover:shadow-xl hover:shadow-brand-coral/30 hover:scale-[1.02]"
           >
             Book a Discovery Call

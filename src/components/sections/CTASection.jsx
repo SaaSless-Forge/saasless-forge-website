@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { useContactForm } from '@/hooks/useContactForm'
 import { Button } from '@/components/ui/button'
 
 export function CTASection() {
   const { ref, isInView } = useScrollAnimation()
+  const { openContactForm } = useContactForm()
 
   return (
     <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -42,6 +44,7 @@ export function CTASection() {
         <div className="mt-10">
           <Button
             size="lg"
+            onClick={openContactForm}
             className="bg-white text-brand-charcoal hover:bg-white/90 font-bold text-base px-10 py-6 rounded-xl shadow-xl transition-all hover:scale-[1.02] hover:shadow-2xl"
           >
             Book Your Free Discovery Call
