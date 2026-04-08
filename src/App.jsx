@@ -23,7 +23,7 @@ function App() {
         <BrowserRouter>
           <ContactFormProvider>
             <ScrollToTop />
-            <div className="min-h-screen bg-brand-charcoal flex flex-col">
+            <div className="min-h-screen bg-brand-base flex flex-col">
               <Header />
               <main className="flex-1">
                 <AnimatedRoutes />

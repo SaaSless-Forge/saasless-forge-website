@@ -39,17 +39,17 @@ function StepCard({ number, title, description, index, isLast }) {
       className="relative flex gap-6 lg:gap-8"
       initial={{ opacity: 0, x: -30 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: [0.2, 0, 0, 1] }}
     >
       {/* Timeline line + dot */}
       <div className="flex flex-col items-center">
-        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-violet to-brand-cyan shrink-0">
-          <span className="text-lg font-heading font-bold text-white">
+        <div className="flex items-center justify-center w-14 h-14 bg-brand-amber shrink-0">
+          <span className="text-lg font-heading font-bold text-brand-amberDark">
             {number}
           </span>
         </div>
         {!isLast && (
-          <div className="w-0.5 flex-1 mt-3 bg-gradient-to-b from-brand-violet/40 to-transparent min-h-[40px]" />
+          <div className="w-[2px] flex-1 mt-3 bg-brand-outlineVariant min-h-[40px]" />
         )}
       </div>
 
@@ -72,7 +72,7 @@ export function HowItWorksSection() {
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
           How It{' '}
-          <span className="text-gradient">Works</span>
+          <span className="text-brand-amber">Works</span>
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
           A straightforward process designed to get you from idea to launch

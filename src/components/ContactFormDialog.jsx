@@ -35,7 +35,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="bg-brand-charcoal border-white/10 sm:max-w-md">
+      <DialogContent className="bg-brand-surfaceContainer border-2 border-brand-outlineVariant sm:max-w-md">
         {submitted ? (
           <div className="text-center py-6">
             <h3 className="text-2xl font-heading font-bold text-white">
@@ -47,7 +47,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
             </p>
             <Button
               onClick={() => handleClose(false)}
-              className="mt-6 bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold"
+              className="mt-6 bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold"
             >
               Close
             </Button>
@@ -92,7 +92,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
                   id="name"
                   name="name"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet transition-colors"
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -109,7 +109,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
                   id="email"
                   name="email"
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet transition-colors"
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors"
                   placeholder="you@company.com"
                 />
               </div>
@@ -125,7 +125,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
                   type="text"
                   id="company"
                   name="company"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet transition-colors"
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors"
                   placeholder="Your company (optional)"
                 />
               </div>
@@ -142,14 +142,14 @@ export function ContactFormDialog({ open, onOpenChange }) {
                   name="message"
                   rows={3}
                   required
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:border-brand-violet focus:outline-none focus:ring-1 focus:ring-brand-violet transition-colors resize-none"
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors resize-none"
                   placeholder="Tell us briefly about your project or pain point..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold py-6 rounded-xl shadow-lg transition-all hover:scale-[1.02]"
+                className="w-full bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold py-6"
               >
                 Send Message
               </Button>

@@ -10,7 +10,7 @@ export function SectionWrapper({ children, className, dark = true, id }) {
       id={id}
       className={cn(
         'py-24 px-4 sm:px-6 lg:px-8',
-        dark ? 'bg-brand-charcoal' : 'bg-[#131B2E]',
+        dark ? 'bg-brand-base' : 'bg-brand-surface',
         className
       )}
     >
@@ -19,7 +19,7 @@ export function SectionWrapper({ children, className, dark = true, id }) {
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        transition={{ duration: 0.8, ease: [0.2, 0, 0, 1] }}
       >
         {children}
       </motion.div>

@@ -11,9 +11,7 @@ export default function ScorecardPlaceholder() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <Card className="relative overflow-hidden glass">
-          {/* Gradient border effect */}
-          <div className="absolute inset-0 bg-gradient-brand opacity-20 blur-xl" />
+        <Card className="relative overflow-hidden bg-brand-surfaceHigh border-none">
 
           <CardHeader className="relative text-center space-y-2">
             <motion.div
@@ -27,10 +25,10 @@ export default function ScorecardPlaceholder() {
               }}
               className="flex justify-center mb-4"
             >
-              <Sparkles className="h-12 w-12 text-brand-violet" />
+              <Sparkles className="h-12 w-12 text-brand-amber" />
             </motion.div>
 
-            <CardTitle className="text-3xl font-heading font-bold text-gradient">
+            <CardTitle className="text-3xl font-heading font-bold text-brand-amber">
               Digital Health Scorecard
             </CardTitle>
 

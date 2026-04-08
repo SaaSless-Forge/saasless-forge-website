@@ -39,13 +39,10 @@ const services = [
 function ServiceCard({ icon: Icon, title, description }) {
   return (
     <div
-      className={cn(
-        'group glass rounded-2xl p-8 transition-all duration-300',
-        'hover:-translate-y-1 hover:border-brand-violet/40 hover:shadow-lg hover:shadow-brand-violet/10'
-      )}
+      className="group bg-brand-surfaceHigh p-8 transition-colors duration-300 hover:bg-brand-surfaceHighest"
     >
-      <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-violet/15">
-        <Icon className="w-6 h-6 text-brand-violet" />
+      <div className="mb-5 inline-flex items-center justify-center w-12 h-12 bg-brand-surfaceHighest">
+        <Icon className="w-6 h-6 text-brand-amber" />
       </div>
       <h3 className="text-xl font-heading font-bold text-white mb-3">
         {title}
@@ -61,7 +58,7 @@ export function ServicesSection() {
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
           What We{' '}
-          <span className="text-gradient">Build</span>
+          <span className="text-brand-amber">Build</span>
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
           From MVPs to enterprise platforms, we build the software that SaaS

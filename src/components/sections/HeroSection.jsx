@@ -10,8 +10,8 @@ const fadeUp = {
     y: 0,
     transition: {
       delay: i * 0.1,
-      duration: 0.6,
-      ease: 'easeOut',
+      duration: 0.8,
+      ease: [0.2, 0, 0, 1],
     },
   }),
 }
@@ -21,19 +21,10 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
-      {/* Animated gradient blobs */}
+      {/* Metallic gradient background */}
       <div
-        className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-brand-violet/20 blur-3xl animate-blob-float"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/3 right-0 w-[400px] h-[400px] rounded-full bg-brand-cyan/20 blur-3xl animate-blob-float"
-        style={{ animationDelay: '2s' }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-1/4 left-1/3 w-[450px] h-[450px] rounded-full bg-brand-coral/20 blur-3xl animate-blob-float"
-        style={{ animationDelay: '4s' }}
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(45deg, #353534 0%, #0E0E0E 100%)' }}
         aria-hidden="true"
       />
 
@@ -43,7 +34,7 @@ export function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-tight"
+          className="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em]"
         >
           Software That Fits.
         </motion.h1>
@@ -53,7 +44,7 @@ export function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-gradient"
+          className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-brand-amber"
         >
           No templates. No bloat. Just yours.
         </motion.p>
@@ -79,14 +70,14 @@ export function HeroSection() {
           <Button
             size="lg"
             onClick={openContactForm}
-            className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold text-base px-8 py-6 rounded-xl shadow-lg shadow-brand-coral/25 transition-all hover:shadow-xl hover:shadow-brand-coral/30 hover:scale-[1.02]"
+            className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold text-base px-8 py-6"
           >
             Book a Discovery Call
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="border-white/20 text-white hover:bg-white/5 hover:border-white/40 font-semibold text-base px-8 py-6 rounded-xl transition-all"
+            className="border-2 border-brand-secondary text-brand-secondary hover:bg-brand-surfaceHigh font-semibold text-base px-8 py-6"
           >
             See How It Works
           </Button>

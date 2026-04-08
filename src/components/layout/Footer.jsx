@@ -16,12 +16,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-brand-charcoal border-t-2 border-transparent" style={{ borderImage: 'linear-gradient(135deg, #7C3AED 0%, #06B6D4 50%, #F97316 100%) 1' }}>
+    <footer className="relative bg-brand-surface border-t-2 border-brand-outlineVariant">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Column 1: Logo & Tagline */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-heading font-bold text-gradient">
+            <h3 className="text-2xl font-heading font-bold text-brand-amber">
               SaaSless Forge
             </h3>
             <p className="text-muted-foreground text-sm">
@@ -39,7 +39,7 @@ export default function Footer() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="text-muted-foreground hover:text-brand-violet transition-colors text-sm"
+                  className="text-muted-foreground hover:text-brand-amber transition-colors text-sm"
                 >
                   {link.name}
                 </Link>
@@ -62,7 +62,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="text-muted-foreground hover:text-brand-violet transition-colors"
+                    className="text-muted-foreground hover:text-brand-amber transition-colors"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="mt-12 pt-8 border-t-2 border-brand-outlineVariant/20">
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} SaaSless Forge. All rights reserved.
           </p>

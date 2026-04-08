@@ -41,11 +41,11 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-gradient mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-brand-amber mb-8">
             Built Different. On Purpose.
           </h1>
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-6"
+            className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -57,7 +57,7 @@ export default function About() {
             definitely cost too much. So we started building the alternative.
           </motion.p>
           <motion.p
-            className="text-lg sm:text-xl text-gray-400 leading-relaxed"
+            className="text-lg sm:text-xl text-brand-outline leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -72,7 +72,7 @@ export default function About() {
       {/* Section 2: Mission & Values */}
       <SectionWrapper id="mission-values">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gradient mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-4">
             What We Stand For
           </h2>
         </div>
@@ -82,21 +82,21 @@ export default function About() {
             return (
               <motion.div
                 key={value.title}
-                className="group glass p-8 rounded-2xl border border-white/10 hover:border-brand-violet/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-violet/20"
+                className="group bg-brand-surfaceHigh p-8 transition-colors duration-300 hover:bg-brand-surfaceHighest"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-brand-amber flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-brand-amberDark" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-heading font-bold text-white mb-3">
                       {value.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-brand-outline leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export default function About() {
       <SectionWrapper className="bg-gradient-subtle" id="saasless-meaning">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gradient mb-8"
+            className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -120,7 +120,7 @@ export default function About() {
             Why "SaaSless"?
           </motion.h2>
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-12"
+            className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -146,7 +146,7 @@ export default function About() {
             <Button
               size="lg"
               onClick={openContactForm}
-              className="bg-brand-coral hover:bg-brand-coral/90 text-white font-heading font-bold text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-heading font-bold text-lg px-8 py-6"
             >
               Let's Talk
             </Button>

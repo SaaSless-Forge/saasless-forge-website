@@ -29,12 +29,12 @@ function TestimonialCard({ quote, author, role, index }) {
   return (
     <motion.div
       ref={ref}
-      className="relative rounded-2xl p-[1px] bg-gradient-to-br from-brand-violet via-brand-cyan to-brand-coral transition-transform hover:scale-[1.02]"
+      className="relative bg-brand-surfaceHigh p-8 h-full"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: [0.2, 0, 0, 1] }}
     >
-      <div className="glass rounded-2xl p-8 h-full bg-brand-charcoal">
+      <div>
         <blockquote className="text-lg text-white/90 leading-relaxed mb-6">
           &ldquo;{quote}&rdquo;
         </blockquote>
@@ -53,7 +53,7 @@ export function SocialProofSection() {
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
           What People{' '}
-          <span className="text-gradient">Say</span>
+          <span className="text-brand-amber">Say</span>
         </h2>
       </div>
 
