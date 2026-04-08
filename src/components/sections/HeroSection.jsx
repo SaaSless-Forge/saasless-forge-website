@@ -29,13 +29,13 @@ export function HeroSection() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-left">
         <motion.h1
           custom={1}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em]"
+          className="text-5xl sm:text-6xl lg:text-[3.5rem] xl:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em] uppercase"
         >
           {content.headline}
         </motion.h1>
@@ -45,7 +45,7 @@ export function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-brand-amber"
+          className="mt-4 text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-brand-amber"
         >
           {content.subheading}
         </motion.p>
@@ -55,7 +55,7 @@ export function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed"
         >
           {content.description}
         </motion.p>
@@ -65,7 +65,7 @@ export function HeroSection() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 flex flex-col sm:flex-row items-start gap-4"
         >
           <Button
             size="lg"

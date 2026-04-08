@@ -1,27 +1,27 @@
 {
-  "headline": "How It",
-  "headlineAccent": "Works",
-  "description": "A straightforward process designed to get you from idea to launch without the runaround.",
+  "headline": "The",
+  "headlineAccent": "Process",
+  "description": "A disciplined, four-phase process engineered to move you from concept to launch without the runaround.",
   "steps": [
     {
       "number": "01",
-      "title": "Discovery Call",
-      "description": "We dig into your problem, your workflow, and your vision. No pitch deck required."
+      "title": "Discovery",
+      "description": "We dig into your problem, your workflow, and your vision. No pitch deck required — just an honest conversation."
     },
     {
       "number": "02",
       "title": "Blueprint & Estimate",
-      "description": "You get a clear plan with fixed pricing. No surprises, no scope creep."
+      "description": "You receive a detailed technical blueprint with fixed pricing. No surprises. No scope creep."
     },
     {
       "number": "03",
       "title": "Build Sprint",
-      "description": "We build in focused sprints with weekly demos. You see progress, not promises."
+      "description": "We build in focused sprints with weekly demos. You see working software, not slide decks."
     },
     {
       "number": "04",
       "title": "Launch & Handoff",
-      "description": "Your software goes live. You own everything — code, data, the whole thing."
+      "description": "Your software goes live on your infrastructure. You own everything — code, data, the entire system."
     }
   ]
 }

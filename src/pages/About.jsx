@@ -15,16 +15,16 @@ export default function About() {
       {/* Section 1: About Hero */}
       <SectionWrapper dark id="about-hero">
         <motion.div
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl text-left"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: [0.2, 0, 0, 1] }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-brand-amber mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-brand-amber mb-8 uppercase tracking-tight">
             {content.hero.headline}
           </h1>
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-6"
+            className="text-sm sm:text-base text-brand-secondary leading-relaxed mb-6 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -32,7 +32,7 @@ export default function About() {
             {content.hero.paragraph1}
           </motion.p>
           <motion.p
-            className="text-lg sm:text-xl text-brand-outline leading-relaxed"
+            className="text-sm sm:text-base text-brand-outline leading-relaxed max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -43,9 +43,9 @@ export default function About() {
       </SectionWrapper>
 
       {/* Section 2: Mission & Values */}
-      <SectionWrapper id="mission-values">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-4">
+      <SectionWrapper id="mission-values" borderTop>
+        <div className="mb-16">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-4 uppercase tracking-tight">
             {content.values.headline}
           </h2>
         </div>
@@ -66,10 +66,10 @@ export default function About() {
                     <Icon className="w-6 h-6 text-brand-amberDark" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-heading font-bold text-white mb-3">
+                    <h3 className="text-lg font-heading font-bold text-white mb-2 uppercase tracking-wide">
                       {value.title}
                     </h3>
-                    <p className="text-brand-outline leading-relaxed">
+                    <p className="text-sm text-brand-outline leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -81,10 +81,10 @@ export default function About() {
       </SectionWrapper>
 
       {/* Section 3: What "SaaSless" Means */}
-      <SectionWrapper className="bg-gradient-subtle" id="saasless-meaning">
-        <div className="max-w-4xl mx-auto text-center">
+      <SectionWrapper className="bg-gradient-subtle" id="saasless-meaning" borderTop>
+        <div className="max-w-4xl text-left">
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-8"
+            className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-8 uppercase tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +93,7 @@ export default function About() {
             {content.saaslessMeaning.headline}
           </motion.h2>
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-12"
+            className="text-sm sm:text-base text-brand-secondary leading-relaxed mb-12 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -102,7 +102,7 @@ export default function About() {
             {content.saaslessMeaning.description}
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-start gap-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

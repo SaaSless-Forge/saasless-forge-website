@@ -1,31 +1,31 @@
 {
   "headline": "What We",
-  "headlineAccent": "Build",
-  "description": "From MVPs to enterprise platforms, we build the software that SaaS companies wish they could sell you.",
+  "headlineAccent": "Forge",
+  "description": "From operational tools to enterprise platforms — we engineer the software that SaaS companies wish they could sell you.",
   "services": [
     {
-      "title": "Custom Web Apps",
-      "description": "Full-stack applications built to your exact specifications."
+      "title": "Custom Web Applications",
+      "description": "Full-stack systems engineered to your exact specifications. No compromises, no workarounds."
     },
     {
-      "title": "Internal Tools",
-      "description": "Dashboards, admin panels, and workflow tools your team actually wants to use."
+      "title": "Internal Operations Tools",
+      "description": "Dashboards, admin panels, and workflow engines your team will actually want to use."
     },
     {
-      "title": "SaaS Alternatives",
-      "description": "Own your software instead of renting it. No per-seat fees, ever."
+      "title": "SaaS Replacement",
+      "description": "Stop renting software. Own your infrastructure outright. No per-seat fees, no vendor lock-in."
     },
     {
       "title": "Automation & Integration",
-      "description": "Connect your tools and automate the tedious stuff."
+      "description": "Connect your systems and eliminate the manual work that's costing you hours every week."
     },
     {
       "title": "MVP Development",
-      "description": "Go from idea to working product in weeks, not months."
+      "description": "Go from concept to working product in weeks. Built to scale, not to throw away."
     },
     {
       "title": "Legacy Modernization",
-      "description": "Breathe new life into outdated systems without starting over."
+      "description": "Rebuild outdated systems on modern infrastructure without losing what already works."
     }
   ]
 }

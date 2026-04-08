@@ -1,27 +1,27 @@
 {
   "headline": "Why",
   "headlineAccent": "SaaSless?",
-  "description": "Because your business deserves software that works for you, not the other way around.",
+  "description": "Because your business deserves infrastructure that works for you — not a subscription that works against you.",
   "stats": [
     {
       "stat": "100%",
-      "label": "Yours",
-      "description": "You own every line of code. No licensing, no lock-in."
+      "label": "Ownership",
+      "description": "You own every line of code. No licensing, no lock-in, no permission required."
     },
     {
       "stat": "1:1",
       "label": "Direct Access",
-      "description": "Work with the person building your software. No account managers."
+      "description": "Work directly with the engineer building your software. No account managers, no middlemen."
     },
     {
       "stat": "Weeks",
       "label": "Not Months",
-      "description": "We ship fast without cutting corners."
+      "description": "We ship production-ready software fast — without cutting corners on quality."
     },
     {
       "stat": "$0",
       "label": "Per Seat",
-      "description": "No recurring SaaS fees. Pay once, own forever."
+      "description": "No recurring SaaS fees. No per-user pricing. Pay once, own forever."
     }
   ]
 }

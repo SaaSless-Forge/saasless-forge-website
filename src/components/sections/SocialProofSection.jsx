@@ -15,12 +15,12 @@ function TestimonialCard({ quote, author, role, index }) {
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.2, 0, 0, 1] }}
     >
       <div>
-        <blockquote className="text-lg text-white/90 leading-relaxed mb-6">
+        <blockquote className="text-sm text-white/90 leading-relaxed mb-6">
           &ldquo;{quote}&rdquo;
         </blockquote>
         <div>
-          <div className="font-heading font-bold text-white">{author}</div>
-          <div className="text-sm text-muted-foreground">{role}</div>
+          <div className="font-heading font-bold text-white text-sm">{author}</div>
+          <div className="text-xs text-muted-foreground uppercase tracking-[0.1em]">{role}</div>
         </div>
       </div>
     </motion.div>
@@ -29,9 +29,9 @@ function TestimonialCard({ quote, author, role, index }) {
 
 export function SocialProofSection() {
   return (
-    <SectionWrapper id="testimonials">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
+    <SectionWrapper id="testimonials" borderTop>
+      <div className="mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white uppercase tracking-tight">
           {content.headline}{' '}
           <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>

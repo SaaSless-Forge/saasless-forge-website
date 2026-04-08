@@ -29,10 +29,10 @@ function StepCard({ number, title, description, index, isLast }) {
 
       {/* Content */}
       <div className={cn('pb-12', isLast && 'pb-0')}>
-        <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-2">
+        <h3 className="text-lg sm:text-xl font-heading font-bold text-white mb-2 uppercase tracking-wide">
           {title}
         </h3>
-        <p className="text-muted-foreground leading-relaxed max-w-md">
+        <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
           {description}
         </p>
       </div>
@@ -42,18 +42,18 @@ function StepCard({ number, title, description, index, isLast }) {
 
 export function HowItWorksSection() {
   return (
-    <SectionWrapper id="how-it-works">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
+    <SectionWrapper id="how-it-works" borderTop>
+      <div className="mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white uppercase tracking-tight">
           {content.headline}{' '}
           <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
-        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-sm text-muted-foreground max-w-2xl">
           {content.description}
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-2xl">
         {content.steps.map((step, index) => (
           <StepCard
             key={step.number}

@@ -1,34 +1,34 @@
 {
   "hero": {
-    "headline": "Built Different. On Purpose.",
-    "paragraph1": "SaaSless Forge is a custom software studio founded on a simple belief: businesses deserve software that's built for them — not rented from someone else. We saw too many companies forced into cookie-cutter SaaS tools that sort of worked, kind of fit, and definitely cost too much. So we started building the alternative.",
-    "paragraph2": "Every project starts with a conversation, not a sales pitch. We listen first, plan carefully, and build fast — because your time matters as much as your budget."
+    "headline": "Engineered Different. On Purpose.",
+    "paragraph1": "SaaSless Forge is a custom software studio built on a fundamental belief: businesses deserve infrastructure that's engineered for them — not rented from someone else. We watched too many companies get trapped in cookie-cutter SaaS tools that sort of worked, kind of fit, and definitely cost too much. So we started forging the alternative.",
+    "paragraph2": "Every project begins with a conversation, not a sales pitch. We listen first, architect carefully, and build fast — because your time is as valuable as your budget."
   },
   "values": {
     "headline": "What We Stand For",
     "items": [
       {
         "title": "No Bloat",
-        "description": "We build exactly what you need — nothing more, nothing less. Every feature earns its place."
+        "description": "We engineer exactly what you need — nothing more, nothing less. Every feature earns its place in the system."
       },
       {
         "title": "No Black Box",
-        "description": "You own your code, your data, and your infrastructure. Full transparency, always."
+        "description": "You own your code, your data, and your infrastructure. Full transparency, full control, always."
       },
       {
         "title": "No Assembly Line",
-        "description": "Every project gets personal attention from senior developers. No juniors, no handoffs."
+        "description": "Every project gets direct attention from senior engineers. No juniors, no handoffs, no layers between you and the work."
       },
       {
         "title": "No Nonsense",
-        "description": "Fixed pricing, clear timelines, weekly demos. We respect your time and your budget."
+        "description": "Fixed pricing, clear timelines, weekly demos of working software. We respect your time and your budget."
       }
     ]
   },
   "saaslessMeaning": {
     "headline": "Why \"SaaSless\"?",
-    "description": "SaaS changed the world — but it also created a world of monthly fees, vendor lock-in, and one-size-fits-all solutions. \"SaaSless\" means taking back ownership. It means custom software that you pay for once and own forever. No per-seat pricing. No feature gates. No begging for integrations. Just software that fits your business like a glove.",
-    "ctaPrompt": "Sounds good?",
+    "description": "SaaS changed the world — but it also created a world of monthly fees, vendor lock-in, and one-size-fits-all solutions. \"SaaSless\" means taking back ownership. It means custom infrastructure that you pay for once and own forever. No per-seat pricing. No feature gates. No begging for integrations. Just software engineered to fit your business like a glove.",
+    "ctaPrompt": "Ready to own your software?",
     "buttonText": "Let's Talk"
   }
 }

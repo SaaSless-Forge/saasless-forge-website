@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { cn } from '@/lib/utils'
 
-export function SectionWrapper({ children, className, dark = true, id }) {
+export function SectionWrapper({ children, className, dark = true, id, borderTop = false }) {
   const { ref, isInView } = useScrollAnimation()
 
   return (
@@ -10,7 +10,8 @@ export function SectionWrapper({ children, className, dark = true, id }) {
       id={id}
       className={cn(
         'py-24 px-4 sm:px-6 lg:px-8',
-        dark ? 'bg-brand-base' : 'bg-brand-surface',
+        dark ? 'bg-brand-base' : 'bg-brand-surfaceLow',
+        borderTop && 'border-t-4 border-brand-outlineVariant',
         className
       )}
     >

@@ -1,5 +1,5 @@
 {
-  "headline": "What People",
+  "headline": "What Clients",
   "headlineAccent": "Say",
   "testimonials": [
     {
@@ -8,12 +8,12 @@
       "role": "Operations Director"
     },
     {
-      "quote": "Finally, software that works the way we do — not the other way around.",
+      "quote": "Finally, software that works the way we do — not the other way around. The difference is night and day.",
       "author": "Sarah K.",
       "role": "Founder & CEO"
     },
     {
-      "quote": "The speed was incredible. We went from first call to working MVP in four weeks.",
+      "quote": "The speed was incredible. We went from first call to working product in four weeks. No other shop could touch that.",
       "author": "Alex R.",
       "role": "Product Manager"
     }

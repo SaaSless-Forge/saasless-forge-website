@@ -9,7 +9,7 @@ function StatCard({ stat, label, description, index }) {
   return (
     <motion.div
       ref={ref}
-      className="bg-brand-surfaceHigh p-8 text-center lg:text-left"
+      className="bg-brand-surfaceHigh p-8 text-left"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.2, 0, 0, 1] }}
@@ -17,10 +17,10 @@ function StatCard({ stat, label, description, index }) {
       <div className="text-5xl sm:text-6xl font-heading font-extrabold text-brand-amber leading-none">
         {stat}
       </div>
-      <div className="mt-2 text-xl font-heading font-bold text-white">
+      <div className="mt-2 text-sm font-heading font-bold text-white uppercase tracking-[0.1em]">
         {label}
       </div>
-      <p className="mt-3 text-muted-foreground leading-relaxed">
+      <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
         {description}
       </p>
     </motion.div>
@@ -29,13 +29,13 @@ function StatCard({ stat, label, description, index }) {
 
 export function WhyUsSection() {
   return (
-    <SectionWrapper id="why-us" dark={false}>
-      <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
+    <SectionWrapper id="why-us" dark={false} borderTop>
+      <div className="mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white uppercase tracking-tight">
           {content.headline}{' '}
           <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
-        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-sm text-muted-foreground max-w-2xl">
           {content.description}
         </p>
       </div>
