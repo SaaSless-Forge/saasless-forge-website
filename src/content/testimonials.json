@@ -1,0 +1,21 @@
+{
+  "headline": "What People",
+  "headlineAccent": "Say",
+  "testimonials": [
+    {
+      "quote": "SaaSless Forge built us an internal tool that replaced three SaaS subscriptions. It paid for itself in two months.",
+      "author": "Jordan M.",
+      "role": "Operations Director"
+    },
+    {
+      "quote": "Finally, software that works the way we do — not the other way around.",
+      "author": "Sarah K.",
+      "role": "Founder & CEO"
+    },
+    {
+      "quote": "The speed was incredible. We went from first call to working MVP in four weeks.",
+      "author": "Alex R.",
+      "role": "Product Manager"
+    }
+  ]
+}

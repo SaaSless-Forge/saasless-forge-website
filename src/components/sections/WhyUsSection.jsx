@@ -1,30 +1,7 @@
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
-
-const stats = [
-  {
-    stat: '100%',
-    label: 'Yours',
-    description: 'You own every line of code. No licensing, no lock-in.',
-  },
-  {
-    stat: '1:1',
-    label: 'Direct Access',
-    description:
-      'Work with the person building your software. No account managers.',
-  },
-  {
-    stat: 'Weeks',
-    label: 'Not Months',
-    description: 'We ship fast without cutting corners.',
-  },
-  {
-    stat: '$0',
-    label: 'Per Seat',
-    description: 'No recurring SaaS fees. Pay once, own forever.',
-  },
-]
+import content from '@/content/why-us.json'
 
 function StatCard({ stat, label, description, index }) {
   const { ref, isInView } = useScrollAnimation()
@@ -55,17 +32,16 @@ export function WhyUsSection() {
     <SectionWrapper id="why-us" dark={false}>
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
-          Why{' '}
-          <span className="text-brand-amber">SaaSless?</span>
+          {content.headline}{' '}
+          <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Because your business deserves software that works for you, not the
-          other way around.
+          {content.description}
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {stats.map((item, index) => (
+        {content.stats.map((item, index) => (
           <StatCard key={item.stat} {...item} index={index} />
         ))}
       </div>

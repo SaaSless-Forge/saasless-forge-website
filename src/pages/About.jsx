@@ -3,30 +3,9 @@ import { Scissors, Eye, Fingerprint, Target } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { useContactForm } from '@/hooks/useContactForm'
+import content from '@/content/about.json'
 
-// Value cards data
-const values = [
-  {
-    icon: Scissors,
-    title: 'No Bloat',
-    description: 'We build exactly what you need — nothing more, nothing less. Every feature earns its place.',
-  },
-  {
-    icon: Eye,
-    title: 'No Black Box',
-    description: 'You own your code, your data, and your infrastructure. Full transparency, always.',
-  },
-  {
-    icon: Fingerprint,
-    title: 'No Assembly Line',
-    description: 'Every project gets personal attention from senior developers. No juniors, no handoffs.',
-  },
-  {
-    icon: Target,
-    title: 'No Nonsense',
-    description: 'Fixed pricing, clear timelines, weekly demos. We respect your time and your budget.',
-  },
-]
+const valueIcons = [Scissors, Eye, Fingerprint, Target]
 
 export default function About() {
   const { openContactForm } = useContactForm()
@@ -42,7 +21,7 @@ export default function About() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-brand-amber mb-8">
-            Built Different. On Purpose.
+            {content.hero.headline}
           </h1>
           <motion.p
             className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-6"
@@ -50,11 +29,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            SaaSless Forge is a custom software studio founded on a simple
-            belief: businesses deserve software that's built for them — not
-            rented from someone else. We saw too many companies forced into
-            cookie-cutter SaaS tools that sort of worked, kind of fit, and
-            definitely cost too much. So we started building the alternative.
+            {content.hero.paragraph1}
           </motion.p>
           <motion.p
             className="text-lg sm:text-xl text-brand-outline leading-relaxed"
@@ -62,9 +37,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Every project starts with a conversation, not a sales pitch. We
-            listen first, plan carefully, and build fast — because your time
-            matters as much as your budget.
+            {content.hero.paragraph2}
           </motion.p>
         </motion.div>
       </SectionWrapper>
@@ -73,12 +46,12 @@ export default function About() {
       <SectionWrapper id="mission-values">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-brand-amber mb-4">
-            What We Stand For
+            {content.values.headline}
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {values.map((value, index) => {
-            const Icon = value.icon
+          {content.values.items.map((value, index) => {
+            const Icon = valueIcons[index] || Scissors
             return (
               <motion.div
                 key={value.title}
@@ -117,7 +90,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Why "SaaSless"?
+            {content.saaslessMeaning.headline}
           </motion.h2>
           <motion.p
             className="text-lg sm:text-xl lg:text-2xl text-brand-secondary leading-relaxed mb-12"
@@ -126,12 +99,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            SaaS changed the world — but it also created a world of monthly
-            fees, vendor lock-in, and one-size-fits-all solutions. "SaaSless"
-            means taking back ownership. It means custom software that you pay
-            for once and own forever. No per-seat pricing. No feature gates. No
-            begging for integrations. Just software that fits your business like
-            a glove.
+            {content.saaslessMeaning.description}
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -141,14 +109,14 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="text-xl font-heading font-semibold text-white">
-              Sounds good?
+              {content.saaslessMeaning.ctaPrompt}
             </p>
             <Button
               size="lg"
               onClick={openContactForm}
               className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-heading font-bold text-lg px-8 py-6"
             >
-              Let's Talk
+              {content.saaslessMeaning.buttonText}
             </Button>
           </motion.div>
         </div>

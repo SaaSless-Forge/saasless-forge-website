@@ -1,0 +1,127 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    editor:
+      preview: false
+    files:
+      - name: "hero"
+        label: "Home — Hero Section"
+        file: "src/content/hero.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Primary Button Text", name: "primaryButtonText", widget: "string" }
+          - { label: "Secondary Button Text", name: "secondaryButtonText", widget: "string" }
+
+      - name: "services"
+        label: "Home — Services Section"
+        file: "src/content/services.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Headline Accent Word", name: "headlineAccent", widget: "string", hint: "This word appears in amber/accent color" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "how-it-works"
+        label: "Home — How It Works"
+        file: "src/content/how-it-works.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Headline Accent Word", name: "headlineAccent", widget: "string", hint: "This word appears in amber/accent color" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Step Number", name: "number", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "why-us"
+        label: "Home — Why SaaSless"
+        file: "src/content/why-us.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Headline Accent Word", name: "headlineAccent", widget: "string", hint: "This word appears in amber/accent color" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Stat Value", name: "stat", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "testimonials"
+        label: "Home — Testimonials"
+        file: "src/content/testimonials.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Headline Accent Word", name: "headlineAccent", widget: "string", hint: "This word appears in amber/accent color" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Author Name", name: "author", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string" }
+
+      - name: "cta"
+        label: "Home — Call to Action"
+        file: "src/content/cta.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
+
+      - name: "about"
+        label: "About Page"
+        file: "src/content/about.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "First Paragraph", name: "paragraph1", widget: "text" }
+              - { label: "Second Paragraph", name: "paragraph2", widget: "text" }
+          - label: "Values Section"
+            name: "values"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "string" }
+              - label: "Values"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          - label: "SaaSless Meaning Section"
+            name: "saaslessMeaning"
+            widget: "object"
+            fields:
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "CTA Prompt", name: "ctaPrompt", widget: "string" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+
+      - name: "scorecard"
+        label: "Scorecard Page"
+        file: "src/content/scorecard.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Status Text", name: "statusText", widget: "string" }

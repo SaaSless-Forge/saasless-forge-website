@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Sparkles } from 'lucide-react'
+import content from '@/content/scorecard.json'
 
 export default function ScorecardPlaceholder() {
   return (
@@ -29,11 +30,11 @@ export default function ScorecardPlaceholder() {
             </motion.div>
 
             <CardTitle className="text-3xl font-heading font-bold text-brand-amber">
-              Digital Health Scorecard
+              {content.title}
             </CardTitle>
 
             <CardDescription className="text-muted-foreground text-base">
-              Coming soon — we're building something special.
+              {content.description}
             </CardDescription>
           </CardHeader>
 
@@ -49,7 +50,7 @@ export default function ScorecardPlaceholder() {
               }}
             >
               <p className="text-sm text-muted-foreground">
-                Get notified when we launch
+                {content.statusText}
               </p>
             </motion.div>
           </CardContent>

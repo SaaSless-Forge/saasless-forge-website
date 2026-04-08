@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { useContactForm } from '@/hooks/useContactForm'
 import { Button } from '@/components/ui/button'
+import content from '@/content/cta.json'
 
 export function CTASection() {
   const { ref, isInView } = useScrollAnimation()
@@ -23,11 +24,10 @@ export function CTASection() {
         transition={{ duration: 0.8, ease: [0.2, 0, 0, 1] }}
       >
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white leading-tight">
-          Ready to Build Something Real?
+          {content.headline}
         </h2>
         <p className="mt-6 text-lg sm:text-xl text-brand-secondary max-w-2xl mx-auto leading-relaxed">
-          Let&apos;s talk about your project. No commitment, no pitch — just a
-          conversation about what&apos;s possible.
+          {content.description}
         </p>
         <div className="mt-10">
           <Button
@@ -35,7 +35,7 @@ export function CTASection() {
             onClick={openContactForm}
             className="bg-brand-amber text-brand-amberDark hover:bg-brand-amberHover font-bold text-base px-10 py-6"
           >
-            Book Your Free Discovery Call
+            {content.buttonText}
           </Button>
         </div>
       </motion.div>

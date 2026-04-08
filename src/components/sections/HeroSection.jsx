@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useContactForm } from '@/hooks/useContactForm'
+import content from '@/content/hero.json'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -36,7 +37,7 @@ export function HeroSection() {
           animate="visible"
           className="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em]"
         >
-          Software That Fits.
+          {content.headline}
         </motion.h1>
 
         <motion.p
@@ -46,7 +47,7 @@ export function HeroSection() {
           animate="visible"
           className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-brand-amber"
         >
-          No templates. No bloat. Just yours.
+          {content.subheading}
         </motion.p>
 
         <motion.p
@@ -56,8 +57,7 @@ export function HeroSection() {
           animate="visible"
           className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
-          We build custom software that replaces the SaaS tools draining your
-          budget. You own every line of code, forever.
+          {content.description}
         </motion.p>
 
         <motion.div
@@ -72,14 +72,14 @@ export function HeroSection() {
             onClick={openContactForm}
             className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold text-base px-8 py-6"
           >
-            Book a Discovery Call
+            {content.primaryButtonText}
           </Button>
           <Button
             variant="outline"
             size="lg"
             className="border-2 border-brand-secondary text-brand-secondary hover:bg-brand-surfaceHigh font-semibold text-base px-8 py-6"
           >
-            See How It Works
+            {content.secondaryButtonText}
           </Button>
         </motion.div>
       </div>

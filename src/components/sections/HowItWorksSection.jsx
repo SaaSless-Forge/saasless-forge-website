@@ -2,33 +2,7 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { cn } from '@/lib/utils'
-
-const steps = [
-  {
-    number: '01',
-    title: 'Discovery Call',
-    description:
-      'We dig into your problem, your workflow, and your vision. No pitch deck required.',
-  },
-  {
-    number: '02',
-    title: 'Blueprint & Estimate',
-    description:
-      'You get a clear plan with fixed pricing. No surprises, no scope creep.',
-  },
-  {
-    number: '03',
-    title: 'Build Sprint',
-    description:
-      'We build in focused sprints with weekly demos. You see progress, not promises.',
-  },
-  {
-    number: '04',
-    title: 'Launch & Handoff',
-    description:
-      'Your software goes live. You own everything — code, data, the whole thing.',
-  },
-]
+import content from '@/content/how-it-works.json'
 
 function StepCard({ number, title, description, index, isLast }) {
   const { ref, isInView } = useScrollAnimation()
@@ -71,22 +45,21 @@ export function HowItWorksSection() {
     <SectionWrapper id="how-it-works">
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
-          How It{' '}
-          <span className="text-brand-amber">Works</span>
+          {content.headline}{' '}
+          <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          A straightforward process designed to get you from idea to launch
-          without the runaround.
+          {content.description}
         </p>
       </div>
 
       <div className="max-w-2xl mx-auto">
-        {steps.map((step, index) => (
+        {content.steps.map((step, index) => (
           <StepCard
             key={step.number}
             {...step}
             index={index}
-            isLast={index === steps.length - 1}
+            isLast={index === content.steps.length - 1}
           />
         ))}
       </div>

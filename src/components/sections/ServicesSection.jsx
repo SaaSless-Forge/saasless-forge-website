@@ -1,40 +1,9 @@
 import { Globe, Wrench, Zap, ArrowRightLeft, Rocket, RefreshCw } from 'lucide-react'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { cn } from '@/lib/utils'
+import content from '@/content/services.json'
 
-const services = [
-  {
-    icon: Globe,
-    title: 'Custom Web Apps',
-    description: 'Full-stack applications built to your exact specifications.',
-  },
-  {
-    icon: Wrench,
-    title: 'Internal Tools',
-    description:
-      'Dashboards, admin panels, and workflow tools your team actually wants to use.',
-  },
-  {
-    icon: Zap,
-    title: 'SaaS Alternatives',
-    description: 'Own your software instead of renting it. No per-seat fees, ever.',
-  },
-  {
-    icon: ArrowRightLeft,
-    title: 'Automation & Integration',
-    description: 'Connect your tools and automate the tedious stuff.',
-  },
-  {
-    icon: Rocket,
-    title: 'MVP Development',
-    description: 'Go from idea to working product in weeks, not months.',
-  },
-  {
-    icon: RefreshCw,
-    title: 'Legacy Modernization',
-    description: 'Breathe new life into outdated systems without starting over.',
-  },
-]
+const icons = [Globe, Wrench, Zap, ArrowRightLeft, Rocket, RefreshCw]
 
 function ServiceCard({ icon: Icon, title, description }) {
   return (
@@ -57,18 +26,17 @@ export function ServicesSection() {
     <SectionWrapper id="services" dark={false}>
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
-          What We{' '}
-          <span className="text-brand-amber">Build</span>
+          {content.headline}{' '}
+          <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          From MVPs to enterprise platforms, we build the software that SaaS
-          companies wish they could sell you.
+          {content.description}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <ServiceCard key={service.title} {...service} />
+        {content.services.map((service, index) => (
+          <ServiceCard key={service.title} icon={icons[index] || Globe} {...service} />
         ))}
       </div>
     </SectionWrapper>

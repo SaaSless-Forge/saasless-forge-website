@@ -1,27 +1,7 @@
 import { motion } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
-
-const testimonials = [
-  {
-    quote:
-      'SaaSless Forge built us an internal tool that replaced three SaaS subscriptions. It paid for itself in two months.',
-    author: 'Jordan M.',
-    role: 'Operations Director',
-  },
-  {
-    quote:
-      'Finally, software that works the way we do — not the other way around.',
-    author: 'Sarah K.',
-    role: 'Founder & CEO',
-  },
-  {
-    quote:
-      'The speed was incredible. We went from first call to working MVP in four weeks.',
-    author: 'Alex R.',
-    role: 'Product Manager',
-  },
-]
+import content from '@/content/testimonials.json'
 
 function TestimonialCard({ quote, author, role, index }) {
   const { ref, isInView } = useScrollAnimation()
@@ -52,13 +32,13 @@ export function SocialProofSection() {
     <SectionWrapper id="testimonials">
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white">
-          What People{' '}
-          <span className="text-brand-amber">Say</span>
+          {content.headline}{' '}
+          <span className="text-brand-amber">{content.headlineAccent}</span>
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((testimonial, index) => (
+        {content.testimonials.map((testimonial, index) => (
           <TestimonialCard key={testimonial.author} {...testimonial} index={index} />
         ))}
       </div>
