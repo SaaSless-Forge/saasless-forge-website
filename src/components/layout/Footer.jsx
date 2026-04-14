@@ -4,7 +4,9 @@ import { Mail, Github, Linkedin, Twitter } from 'lucide-react'
 const quickLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Scorecard', path: '/scorecard' }
+  { name: 'Scorecard', path: '/scorecard' },
+  { name: 'Privacy', path: '/privacy' },
+  { name: 'SMS Terms', path: '/terms' }
 ]
 
 const socialLinks = [

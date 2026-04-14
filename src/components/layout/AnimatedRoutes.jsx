@@ -4,6 +4,8 @@ import PageLayout from './PageLayout'
 import Home from '@/pages/Home'
 import About from '@/pages/About'
 import ScorecardPlaceholder from '@/pages/ScorecardPlaceholder'
+import Privacy from '@/pages/Privacy'
+import Terms from '@/pages/Terms'
 
 export default function AnimatedRoutes() {
   const location = useLocation()
@@ -32,6 +34,22 @@ export default function AnimatedRoutes() {
           element={
             <PageLayout>
               <ScorecardPlaceholder />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <PageLayout>
+              <Privacy />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/terms"
+          element={
+            <PageLayout>
+              <Terms />
             </PageLayout>
           }
         />
