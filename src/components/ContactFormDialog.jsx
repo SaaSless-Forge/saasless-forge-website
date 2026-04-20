@@ -83,7 +83,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Name
                 </label>
@@ -100,7 +100,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Email
                 </label>
@@ -117,7 +117,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="company"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Company
                 </label>
@@ -133,7 +133,7 @@ export function ContactFormDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   What are you looking for?
                 </label>

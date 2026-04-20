@@ -81,7 +81,7 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="sms-name"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Your name
                 </label>
@@ -98,7 +98,7 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="sms-email"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Work email
                 </label>
@@ -115,7 +115,7 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="sms-business"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Business name
                 </label>
@@ -132,7 +132,7 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="sms-phone"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   Phone number
                 </label>
@@ -148,7 +148,7 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               <div>
                 <label
                   htmlFor="sms-usecase"
-                  className="block text-sm font-medium text-white/80 mb-1"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
                   What will you use SMS for?
                 </label>
