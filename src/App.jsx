@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import AnimatedRoutes from '@/components/layout/AnimatedRoutes'
 import ScrollToTop from '@/components/layout/ScrollToTop'
 import LoadingScreen from '@/components/layout/LoadingScreen'
+import AnnouncementBar from '@/components/layout/AnnouncementBar'
 import { ContactFormProvider } from '@/hooks/useContactForm'
 import { SmsWaitlistProvider } from '@/hooks/useSmsWaitlist'
 
@@ -26,6 +27,7 @@ function App() {
             <SmsWaitlistProvider>
               <ScrollToTop />
               <div className="min-h-screen bg-brand-base flex flex-col">
+                <AnnouncementBar />
                 <Header />
                 <main className="flex-1">
                   <AnimatedRoutes />
