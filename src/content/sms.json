@@ -1,0 +1,15 @@
+{
+  "eyebrow": "NEW · SELF-SERVE",
+  "headline": "SMS for Your Business,",
+  "headlineAccent": "Without the Enterprise Contract.",
+  "description": "Sign up in minutes, add a card, get a dedicated number. Send reminders, confirmations, and marketing blasts — priced at cost plus a flat margin, with no per-seat fees, no minimums, and no quarterly reviews.",
+  "bullets": [
+    "Dedicated US phone number, provisioned automatically",
+    "Templates, contacts, opt-in/opt-out, and audit log out of the box",
+    "A2P 10DLC compliance handled by SaaSless Forge",
+    "Monthly budget cap + transparent usage dashboard"
+  ],
+  "buttonText": "Create Your SMS Account",
+  "signupUrl": "https://app.saaslessforge.com/clients/auth/sign_up",
+  "footnote": "US numbers only at launch. Approval typically within 1 business day."
+}
