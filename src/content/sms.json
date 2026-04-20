@@ -1,15 +1,14 @@
 {
-  "eyebrow": "NEW · SELF-SERVE",
+  "eyebrow": "NEW · JOIN THE WAITLIST",
   "headline": "SMS for Your Business,",
   "headlineAccent": "Without the Enterprise Contract.",
-  "description": "Sign up in minutes, add a card, get a dedicated number. Send reminders, confirmations, and marketing blasts — priced at cost plus a flat margin, with no per-seat fees, no minimums, and no quarterly reviews.",
+  "description": "Dedicated number, templates, contacts, compliance — all at cost plus a flat margin. We're onboarding a small first batch of customers as carrier approval comes through. Join the list and we'll reach out when your account is ready to activate.",
   "bullets": [
-    "Dedicated US phone number, provisioned automatically",
-    "Templates, contacts, opt-in/opt-out, and audit log out of the box",
+    "Dedicated US phone number, provisioned for you",
+    "Templates, contacts, opt-in/opt-out, and full audit log",
     "A2P 10DLC compliance handled by SaaSless Forge",
-    "Monthly budget cap + transparent usage dashboard"
+    "Transparent usage dashboard with monthly budget cap"
   ],
-  "buttonText": "Create Your SMS Account",
-  "signupUrl": "https://app.saaslessforge.com/clients/auth/sign_up",
-  "footnote": "US numbers only at launch. Approval typically within 1 business day."
+  "buttonText": "Join the Waitlist",
+  "footnote": "No card required. We'll email you when it's your turn to activate."
 }

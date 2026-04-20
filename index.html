@@ -11,12 +11,19 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Hidden form for Netlify form detection (React renders the real one) -->
+    <!-- Hidden forms for Netlify form detection (React renders the real ones) -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="company" />
       <textarea name="message"></textarea>
+    </form>
+    <form name="sms-waitlist" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="business" />
+      <input type="tel" name="phone" />
+      <textarea name="use_case"></textarea>
     </form>
 
     <div id="root"></div>
