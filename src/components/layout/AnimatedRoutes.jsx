@@ -6,6 +6,7 @@ import About from '@/pages/About'
 import ScorecardPlaceholder from '@/pages/ScorecardPlaceholder'
 import Privacy from '@/pages/Privacy'
 import Terms from '@/pages/Terms'
+import SmsSignup from '@/pages/SmsSignup'
 
 export default function AnimatedRoutes() {
   const location = useLocation()
@@ -50,6 +51,14 @@ export default function AnimatedRoutes() {
           element={
             <PageLayout>
               <Terms />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/sms-signup"
+          element={
+            <PageLayout>
+              <SmsSignup />
             </PageLayout>
           }
         />
