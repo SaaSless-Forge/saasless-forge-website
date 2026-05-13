@@ -671,8 +671,7 @@ equipment`}
                     },
                     {
                       value: 'transfer',
-                      label:
-                        'Transfer it to my own infrastructure ($300 one-time fee)',
+                      label: 'Transfer it to my own infrastructure',
                     },
                     {
                       value: 'not_sure',
