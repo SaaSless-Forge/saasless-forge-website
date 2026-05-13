@@ -474,44 +474,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  13. Does it need to connect to any of these tools? Choose one.
-                </p>
-                <RadioGroup
-                  name="integration"
-                  required
-                  options={[
-                    {
-                      value: 'stripe',
-                      label: 'Stripe Checkout (for taking payments)',
-                    },
-                    { value: 'twilio', label: 'Twilio (for sending SMS)' },
-                    {
-                      value: 'sendgrid',
-                      label: 'SendGrid (for sending email)',
-                    },
-                    { value: 'google_calendar', label: 'Google Calendar' },
-                    { value: 'llm', label: 'LLM (AKA ChatGPT)' },
-                    {
-                      value: 'none',
-                      label: 'None — the app is self-contained',
-                    },
-                    {
-                      value: 'other',
-                      label: 'Something not on this list',
-                    },
-                  ]}
-                />
-                <input
-                  type="text"
-                  name="integration_other"
-                  placeholder="If something else, please specify"
-                  className={`${INPUT_CLASS} mt-3`}
-                />
-              </div>
-
-              <div>
-                <p className={LABEL_CLASS}>
-                  14. Roughly how many screens does it need?
+                  13. Roughly how many screens does it need?
                 </p>
                 <RadioGroup
                   name="screens"
@@ -533,7 +496,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  15. Does it need any of these?{' '}
+                  14. Does it need any of these?{' '}
                   <span className="text-brand-outline normal-case font-normal">
                     (check all that apply)
                   </span>
@@ -573,7 +536,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  16. Does your project need any of the following?{' '}
+                  15. Does your project need any of the following?{' '}
                   <span className="text-brand-outline normal-case font-normal">
                     (check all that apply)
                   </span>
@@ -640,7 +603,7 @@ equipment`}
 
               <div>
                 <label htmlFor="i-start" className={LABEL_CLASS}>
-                  17. When would you want the sprint to start?
+                  16. When would you want the sprint to start?
                 </label>
                 <input
                   type="date"
@@ -657,7 +620,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  18. Can you commit to a 15-minute meeting each weekday at the
+                  17. Can you commit to a 15-minute meeting each weekday at the
                   same time?
                 </p>
                 <RadioGroup
@@ -679,7 +642,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  19. After 30 days of included hosting, what do you expect to
+                  18. After 30 days of included hosting, what do you expect to
                   do?
                 </p>
                 <RadioGroup
@@ -706,7 +669,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  20. Have you bought custom software before?
+                  19. Have you bought custom software before?
                 </p>
                 <RadioGroup
                   name="bought_before"
@@ -742,7 +705,7 @@ equipment`}
 
               <div>
                 <label htmlFor="i-anything" className={LABEL_CLASS}>
-                  21. Is there anything important about your business, your
+                  20. Is there anything important about your business, your
                   customers, or this project that didn't fit in the questions
                   above?
                 </label>
@@ -756,7 +719,7 @@ equipment`}
 
               <div>
                 <p className={LABEL_CLASS}>
-                  22. How did you hear about SaaSless Forge?
+                  21. How did you hear about SaaSless Forge?
                 </p>
                 <RadioGroup
                   name="heard_about"
