@@ -602,14 +602,30 @@ equipment`}
               </header>
 
               <div>
-                <label htmlFor="i-start" className={LABEL_CLASS}>
+                <p className={LABEL_CLASS}>
                   16. When would you want the sprint to start?
+                </p>
+                <label className="flex items-start gap-3 border-2 border-brand-outlineVariant bg-brand-surfaceContainer px-4 py-3 cursor-pointer hover:border-brand-amber transition-colors mb-3">
+                  <input
+                    type="checkbox"
+                    name="start_asap"
+                    value="yes"
+                    className="mt-1 accent-brand-amber"
+                  />
+                  <span className="text-sm text-brand-secondary leading-relaxed">
+                    As soon as possible
+                  </span>
+                </label>
+                <label
+                  htmlFor="i-start"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/60 mb-2"
+                >
+                  Or pick a specific Monday
                 </label>
                 <input
                   type="date"
                   id="i-start"
                   name="start_date"
-                  required
                   className={INPUT_CLASS}
                 />
                 <p className={HELP_CLASS}>
