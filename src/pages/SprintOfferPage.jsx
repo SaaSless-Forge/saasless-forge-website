@@ -1,6 +1,15 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog'
 import { useSprintSignup } from '@/hooks/useSprintSignup'
 
 const fadeUp = {
@@ -16,13 +25,92 @@ const fadeUp = {
   }),
 }
 
+const WHAT_YOU_GET = [
+  {
+    n: '01',
+    label: 'A LIVE APP.',
+    body: 'Custom web application, built to your spec, deployed and accessible at a real URL by end of Day 1.',
+  },
+  {
+    n: '02',
+    label: 'FIVE WORKING MEETINGS.',
+    body: 'Fifteen minutes each weekday with the engineer building your app. No project managers. No middlemen.',
+  },
+  {
+    n: '03',
+    label: 'A DAILY TRAIL.',
+    body: 'A short Loom video and written summary every weekday — whether we met live that day or not.',
+  },
+  {
+    n: '04',
+    label: 'THE HANDOFF.',
+    body: 'End-of-sprint demo plus a recorded walkthrough. Yours to keep, replay, and share.',
+  },
+  {
+    n: '05',
+    label: 'YOUR CODE.',
+    body: 'Shared repository. Read-and-write access in perpetuity. Yours to host, modify, or walk away with.',
+  },
+]
+
+const ENVELOPE_STATS = [
+  {
+    n: '3',
+    label: 'DATA MODELS',
+    body: 'A data model is a kind of record your business needs to track — customers, invoices, jobs, equipment, appointments, products, leads. Each model gets full create, read, update, and delete behavior. If you need more than 3, we will talk about which to cut or push to a future sprint.',
+  },
+  {
+    n: '2',
+    label: 'USER ROLES',
+    body: 'One admin role (you and anyone on your team running the business) plus one end-user role (your customers, your field staff, or anyone using the app for its core function). Two total. No more.',
+  },
+  {
+    n: '1',
+    label: 'INTEGRATION',
+    body: 'One third-party connection, chosen from: Stripe Checkout (taking payments), Twilio (sending SMS), SendGrid (sending email), Google Calendar, or an LLM like ChatGPT. One only — your call which.',
+  },
+  {
+    n: '5',
+    label: 'SCREENS',
+    body: 'Every dashboard, form, or page counts as a screen. Most sprints use four: a list view, a detail view, a create/edit form, and one dashboard. If you need more than five, the sprint will not fit.',
+  },
+]
+
+const WEEK = [
+  {
+    day: 'MONDAY',
+    title: 'SPEC & SKELETON',
+    body: 'One-page specification signed by both of us. Skeleton app deployed by end of day.',
+  },
+  {
+    day: 'TUESDAY',
+    title: 'CORE BUILD',
+    body: 'Data models and primary screens come online.',
+  },
+  {
+    day: 'WEDNESDAY',
+    title: 'THE CUTOFF',
+    body: 'Last day for spec changes. Integration lands. After today, scope is locked.',
+  },
+  {
+    day: 'THURSDAY',
+    title: 'POLISH',
+    body: 'Stabilization. Edge cases. Visual cleanup.',
+  },
+  {
+    day: 'FRIDAY',
+    title: 'HANDOFF',
+    body: 'Final demo. Recorded walkthrough. The keys are yours.',
+  },
+]
+
 export default function SprintOfferPage() {
   const { openSprintSignup } = useSprintSignup()
+  const [activeStat, setActiveStat] = useState(null)
 
   return (
     <div className="min-h-screen">
       {/* HERO */}
-      {/* COPY: replace from scope-contract.md §hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
         <div
           className="absolute inset-0"
@@ -38,7 +126,7 @@ export default function SprintOfferPage() {
             animate="visible"
             className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-6"
           >
-            [FILLER: Eyebrow — Limited Spots / Announcement]
+            THE FIVE-DAY SPRINT — $250
           </motion.p>
 
           <motion.h1
@@ -48,7 +136,8 @@ export default function SprintOfferPage() {
             animate="visible"
             className="text-5xl sm:text-6xl lg:text-[3.5rem] xl:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em] uppercase"
           >
-            [FILLER: HERO HEADLINE — replace post-Cowork]
+            Ship Your App In{' '}
+            <span className="text-brand-amber">Five Weekdays.</span>
           </motion.h1>
 
           <motion.p
@@ -56,22 +145,30 @@ export default function SprintOfferPage() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-4 text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-brand-amber"
+            className="mt-6 text-xl sm:text-2xl font-heading font-bold text-brand-secondary leading-snug max-w-3xl"
           >
-            [FILLER: Subhead — one-line value prop]
+            No pitch deck. No prototype. A real custom web application, live on
+            a real URL by the end of Day One.
           </motion.p>
 
-          <motion.p
+          <motion.div
             custom={3}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-6 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed"
+            className="mt-8 space-y-4 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed"
           >
-            [FILLER: Opening paragraph — lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Replace with the contract summary.]
-          </motion.p>
+            <p>
+              Most studios sell you a Discovery deck. We sell you a finished
+              app. Monday through Friday — five weekdays, fifteen minutes a day
+              on the phone with the engineer building it — and by Friday
+              afternoon, your software is in your hands.
+            </p>
+            <p>
+              Two hundred fifty dollars, paid before Day 1. No retainer. No
+              upsell. No surprises.
+            </p>
+          </motion.div>
 
           <motion.div
             custom={4}
@@ -85,7 +182,7 @@ export default function SprintOfferPage() {
               onClick={openSprintSignup}
               className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold text-base px-8 py-6"
             >
-              Reserve my spot
+              Apply For A Sprint
             </Button>
             <Button
               variant="outline"
@@ -103,296 +200,205 @@ export default function SprintOfferPage() {
         </div>
       </section>
 
-      {/* WHAT'S INCLUDED */}
-      {/* COPY: replace from scope-contract.md §whats-included */}
-      <SectionWrapper id="whats-included" dark>
-        <div className="max-w-4xl">
-          <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-8">
-            [FILLER: What's included]
-          </h2>
-          <ul className="space-y-4 text-base sm:text-lg text-brand-secondary">
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 1 — replace from contract]
-            </li>
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 2]
-            </li>
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 3]
-            </li>
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 4]
-            </li>
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 5]
-            </li>
-            <li className="border-l-4 border-brand-amber pl-5 py-1">
-              [FILLER: Included bullet 6]
-            </li>
-          </ul>
-        </div>
-      </SectionWrapper>
-
-      {/* BUILD ENVELOPE */}
-      {/* COPY: replace from scope-contract.md §build-envelope */}
-      <SectionWrapper id="build-envelope" dark={false} borderTop>
-        <div className="max-w-4xl">
-          <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-4">
-            [FILLER: Build envelope]
-          </h2>
-          <p className="text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-            [FILLER: Short framing — the caps are a feature, not a limitation.]
-          </p>
-
-          <div className="border-2 border-brand-outlineVariant">
-            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x-2 divide-brand-outlineVariant">
-              <div className="p-6">
-                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
-                  [FILLER: cap label]
-                </p>
-                <p className="text-3xl font-heading font-extrabold text-white">
-                  [FILLER]
-                </p>
-              </div>
-              <div className="p-6">
-                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
-                  [FILLER: cap label]
-                </p>
-                <p className="text-3xl font-heading font-extrabold text-white">
-                  [FILLER]
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x-2 divide-brand-outlineVariant border-t-2 border-brand-outlineVariant">
-              <div className="p-6">
-                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
-                  [FILLER: cap label]
-                </p>
-                <p className="text-3xl font-heading font-extrabold text-white">
-                  [FILLER]
-                </p>
-              </div>
-              <div className="p-6">
-                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
-                  [FILLER: cap label]
-                </p>
-                <p className="text-3xl font-heading font-extrabold text-white">
-                  [FILLER]
-                </p>
-              </div>
-            </div>
-            <div className="border-t-2 border-brand-outlineVariant p-6">
-              <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
-                [FILLER: cap label]
-              </p>
-              <p className="text-3xl font-heading font-extrabold text-white">
-                [FILLER]
-              </p>
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* HOW A WEEK WORKS */}
-      {/* COPY: replace from scope-contract.md §how-a-week-works */}
-      <SectionWrapper id="how-it-works" dark>
+      {/* WHAT YOU GET */}
+      <SectionWrapper id="what-you-get" dark>
         <div className="max-w-5xl">
           <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
+            What you get
           </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-10">
-            [FILLER: How a week works]
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-12">
+            Five Things. Every Sprint.
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-px bg-brand-outlineVariant border-2 border-brand-outlineVariant">
-            {['MON', 'TUE', 'WED', 'THU', 'FRI'].map((day, i) => (
-              <div key={day} className="bg-brand-base p-6">
-                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-3">
-                  {day}
-                </p>
-                <p className="text-lg font-heading font-bold text-white mb-2">
-                  [FILLER: Day {i + 1} title]
-                </p>
-                <p className="text-sm text-brand-secondary leading-relaxed">
-                  [FILLER: Short description of what happens this day —
-                  replace from contract.]
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-brand-outlineVariant border-2 border-brand-outlineVariant">
+            {WHAT_YOU_GET.map((item) => (
+              <div
+                key={item.n}
+                className="relative bg-brand-base p-8 overflow-hidden"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-4 -right-2 font-heading font-extrabold text-white/[0.03] text-[10rem] leading-none select-none pointer-events-none"
+                >
+                  {item.n}
+                </span>
+                <div className="relative">
+                  <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-3">
+                    {item.n}
+                  </p>
+                  <p className="text-lg font-heading font-bold text-white uppercase tracking-tight mb-2">
+                    {item.label}
+                  </p>
+                  <p className="text-base text-brand-secondary leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* PRICING */}
-      {/* COPY: replace from scope-contract.md §pricing */}
-      <SectionWrapper id="pricing" dark={false} borderTop>
-        <div className="max-w-4xl">
+      {/* BUILD ENVELOPE */}
+      <SectionWrapper id="build-envelope" dark={false} borderTop>
+        <div className="max-w-5xl">
           <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
+            The build envelope
           </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-10">
-            [FILLER: Pricing]
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-6">
+            Hard Caps. On Purpose.
+          </h2>
+          <p className="text-base sm:text-lg text-brand-secondary leading-relaxed mb-10 max-w-3xl">
+            Five working days is a hard cap, not a marketing line. Every sprint
+            lives inside the same fixed envelope. This is the discipline that
+            makes a five-day delivery real.
+          </p>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-brand-outlineVariant border-2 border-brand-outlineVariant">
+            {ENVELOPE_STATS.map((stat) => (
+              <button
+                key={stat.label}
+                type="button"
+                onClick={() => setActiveStat(stat)}
+                className="bg-brand-base p-8 text-left hover:bg-brand-surfaceHigh transition-colors cursor-pointer focus:outline-none focus:bg-brand-surfaceHigh"
+              >
+                <p className="font-heading font-extrabold text-brand-amber text-6xl sm:text-7xl leading-none mb-3">
+                  {stat.n}
+                </p>
+                <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-secondary">
+                  {stat.label}
+                </p>
+              </button>
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground italic">
+            Tap any number to see what counts.
+          </p>
+
+          <p className="mt-10 text-base sm:text-lg text-brand-secondary leading-relaxed max-w-3xl">
+            If your project does not fit, we say so before you pay. We rescope
+            it or send you somewhere else. We do not bend the envelope.
+          </p>
+        </div>
+
+        <Dialog
+          open={!!activeStat}
+          onOpenChange={(v) => !v && setActiveStat(null)}
+        >
+          <DialogContent className="bg-brand-surfaceContainer border-2 border-brand-outlineVariant sm:max-w-lg">
+            {activeStat && (
+              <>
+                <DialogHeader>
+                  <p className="font-heading font-extrabold text-brand-amber text-7xl leading-none mb-2">
+                    {activeStat.n}
+                  </p>
+                  <DialogTitle className="text-2xl font-heading font-bold text-white uppercase tracking-tight">
+                    {activeStat.label}
+                  </DialogTitle>
+                </DialogHeader>
+                <DialogDescription className="text-base text-brand-secondary leading-relaxed mt-2">
+                  {activeStat.body}
+                </DialogDescription>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+      </SectionWrapper>
+
+      {/* HOW THE WEEK MOVES */}
+      <SectionWrapper id="how-it-works" dark>
+        <div className="max-w-6xl">
+          <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
+            How the week moves
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-12">
+            Monday Through Friday.
           </h2>
 
-          <div className="border-2 border-brand-outlineVariant divide-y-2 divide-brand-outlineVariant">
-            <div className="flex items-baseline justify-between p-6">
-              <div>
-                <p className="text-lg font-heading font-bold text-white">
-                  [FILLER: Sprint line item]
-                </p>
-                <p className="text-sm text-brand-secondary mt-1">
-                  [FILLER: short description]
-                </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-brand-outlineVariant border-2 border-brand-outlineVariant">
+            {WEEK.map((d, i) => (
+              <div
+                key={d.day}
+                className="relative bg-brand-base p-6 overflow-hidden"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute -top-2 -right-2 font-heading font-extrabold text-white/[0.03] text-[7rem] leading-none select-none pointer-events-none"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="relative">
+                  <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-2">
+                    {d.day}
+                  </p>
+                  <p className="text-base font-heading font-bold text-white uppercase tracking-tight mb-3">
+                    {d.title}
+                  </p>
+                  <p className="text-sm text-brand-secondary leading-relaxed">
+                    {d.body}
+                  </p>
+                </div>
               </div>
-              <p className="text-3xl font-heading font-extrabold text-brand-amber whitespace-nowrap ml-6">
-                $XXX
-              </p>
-            </div>
-            <div className="flex items-baseline justify-between p-6">
-              <div>
-                <p className="text-lg font-heading font-bold text-white">
-                  [FILLER: Hosting line item]
-                </p>
-                <p className="text-sm text-brand-secondary mt-1">
-                  [FILLER: short description]
-                </p>
-              </div>
-              <p className="text-3xl font-heading font-extrabold text-brand-amber whitespace-nowrap ml-6">
-                $XX/mo
-              </p>
-            </div>
-            <div className="flex items-baseline justify-between p-6">
-              <div>
-                <p className="text-lg font-heading font-bold text-white">
-                  [FILLER: Transfer line item]
-                </p>
-                <p className="text-sm text-brand-secondary mt-1">
-                  [FILLER: short description — billed separately]
-                </p>
-              </div>
-              <p className="text-3xl font-heading font-extrabold text-brand-amber whitespace-nowrap ml-6">
-                $XXX
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* OUT OF SCOPE */}
-      {/* COPY: replace from scope-contract.md §out-of-scope */}
-      <SectionWrapper id="out-of-scope" dark>
-        <div className="max-w-4xl">
-          <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
-          </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-4">
-            [FILLER: Not in this sprint]
-          </h2>
-          <p className="text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-            [FILLER: Why we're explicit about scope — expectation setting
-            is the whole point.]
-          </p>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-base text-brand-secondary">
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 1]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 2]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 3]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 4]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 5]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 6]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 7]</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-brand-amber">—</span>
-              <span>[FILLER: Out-of-scope item 8]</span>
-            </li>
-          </ul>
-        </div>
-      </SectionWrapper>
-
-      {/* FAQ */}
-      {/* COPY: replace from scope-contract.md §faq */}
-      <SectionWrapper id="faq" dark={false} borderTop>
+      {/* AFTER THE SPRINT */}
+      <SectionWrapper id="after" dark={false} borderTop>
         <div className="max-w-3xl">
           <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
-            [FILLER: section eyebrow]
+            After the sprint
           </p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-10">
-            [FILLER: FAQ]
+          <h2 className="text-4xl sm:text-5xl font-heading font-extrabold text-white uppercase tracking-tight mb-8">
+            You Own It. Forever.
           </h2>
-
-          <div className="space-y-8">
-            <div>
-              <p className="text-xl font-heading font-bold text-white mb-2">
-                [FILLER: Q1 — Can I pivot mid-week?]
-              </p>
-              <p className="text-brand-secondary leading-relaxed">
-                [FILLER: A1 — lorem ipsum dolor sit amet, replace from
-                contract.]
-              </p>
-            </div>
-            <div>
-              <p className="text-xl font-heading font-bold text-white mb-2">
-                [FILLER: Q2 — What about AI agents?]
-              </p>
-              <p className="text-brand-secondary leading-relaxed">
-                [FILLER: A2 — replace from contract.]
-              </p>
-            </div>
-            <div>
-              <p className="text-xl font-heading font-bold text-white mb-2">
-                [FILLER: Q3 — Who owns the code?]
-              </p>
-              <p className="text-brand-secondary leading-relaxed">
-                [FILLER: A3 — replace from contract.]
-              </p>
-            </div>
+          <div className="space-y-4 text-base sm:text-lg text-brand-secondary leading-relaxed">
+            <p>
+              The repository is yours. The code is yours. The data is yours.
+              Hosting on our infrastructure runs{' '}
+              <span className="text-white font-semibold">$17 per month</span>,
+              billed separately from the sprint fee. If you ever want to move
+              the app to your own hosting, send us a message and we will plan
+              the migration together.
+            </p>
+            <p>
+              Either way, you leave with software you own. Not software you
+              rent.
+            </p>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* BOTTOM CTA */}
+      {/* CTA */}
       <SectionWrapper id="cta" dark>
-        <div className="max-w-3xl text-left">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white uppercase tracking-tight mb-6">
-            [FILLER: Closing CTA headline]
-          </h2>
-          <p className="text-lg text-brand-secondary leading-relaxed mb-10 max-w-2xl">
-            [FILLER: One-line closer — replace from contract.]
+        <div className="max-w-3xl">
+          <p className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-4">
+            Apply
           </p>
-          <Button
-            size="lg"
-            onClick={openSprintSignup}
-            className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold text-base px-8 py-6"
-          >
-            Reserve my spot
-          </Button>
+          <h2 className="text-5xl sm:text-6xl font-heading font-extrabold text-white uppercase tracking-tight mb-6">
+            Ready To Ship?
+          </h2>
+          <p className="text-base sm:text-lg text-brand-secondary leading-relaxed mb-10 max-w-2xl">
+            We take a small number of applicants each week. Apply with a short
+            intake — we review every application against the build envelope and
+            reply within one business day.
+          </p>
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <Button
+              size="lg"
+              onClick={openSprintSignup}
+              className="bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold text-base px-8 py-6"
+            >
+              Apply For A Sprint
+            </Button>
+            <Link
+              to="/sprint-intake"
+              className="inline-flex items-center text-base font-heading font-bold text-brand-secondary hover:text-brand-amber transition-colors px-2 py-6"
+            >
+              Skip ahead — fill the intake form →
+            </Link>
+          </div>
         </div>
       </SectionWrapper>
     </div>

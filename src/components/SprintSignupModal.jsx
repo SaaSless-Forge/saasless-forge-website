@@ -45,14 +45,13 @@ export function SprintSignupModal({ open, onOpenChange }) {
       <DialogContent className="bg-brand-surfaceContainer border-2 border-brand-outlineVariant sm:max-w-md">
         {submitted ? (
           <div className="text-center py-6">
-            {/* COPY: replace from scope-contract.md §signup-confirmation */}
-            <h3 className="text-2xl font-heading font-bold text-white">
-              [FILLER: You're on the list — confirmation headline]
+            <h3 className="text-2xl font-heading font-bold text-white uppercase tracking-tight">
+              You're On The Shortlist.
             </h3>
-            <p className="mt-3 text-muted-foreground">
-              [FILLER: Lorem ipsum confirmation body. We'll let folks know about
-              week 1 spots. While they wait, route them to the intake form so
-              we can hit the ground running. Replace with final copy.]
+            <p className="mt-3 text-brand-secondary leading-relaxed">
+              We'll reply within one business day. While you wait, fill out
+              the intake form so we can review your project against the
+              build envelope.
             </p>
             <Link
               to={intakeHref}
@@ -74,13 +73,13 @@ export function SprintSignupModal({ open, onOpenChange }) {
         ) : (
           <>
             <DialogHeader>
-              {/* COPY: replace from scope-contract.md §signup-modal */}
-              <DialogTitle className="text-2xl font-heading font-bold text-white">
-                [FILLER: Sprint Signup Headline]
+              <DialogTitle className="text-2xl font-heading font-bold text-white uppercase tracking-tight">
+                Apply For A Sprint.
               </DialogTitle>
-              <DialogDescription className="text-muted-foreground">
-                [FILLER: One-line value prop for the $250 sprint signup —
-                replace with final copy.]
+              <DialogDescription className="text-brand-secondary">
+                We take a small number of applicants each week. Tell us who
+                you are — we'll send the intake form and reply within one
+                business day.
               </DialogDescription>
             </DialogHeader>
 
@@ -153,12 +152,11 @@ export function SprintSignupModal({ open, onOpenChange }) {
                 type="submit"
                 className="w-full bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold py-6"
               >
-                Reserve my spot
+                Apply For A Sprint
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
-                {/* COPY: replace from scope-contract.md §signup-fine-print */}
-                [FILLER: Short reassurance line — no card, no commitment, etc.]
+                Five-day sprint. $250. No retainer.
               </p>
             </form>
           </>
