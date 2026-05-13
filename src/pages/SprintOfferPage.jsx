@@ -28,27 +28,27 @@ const fadeUp = {
 const WHAT_YOU_GET = [
   {
     n: '01',
-    label: 'A LIVE APP.',
+    label: 'A LIVE APP',
     body: 'Custom web application, built to your spec, deployed and accessible at a real URL by end of Day 1.',
   },
   {
     n: '02',
-    label: 'FIVE WORKING MEETINGS.',
+    label: 'FIVE WORKING MEETINGS',
     body: 'Fifteen minutes each weekday with the engineer building your app. No project managers. No middlemen.',
   },
   {
     n: '03',
-    label: 'A DAILY TRAIL.',
+    label: 'A DAILY TRAIL',
     body: 'A short Loom video and written summary every weekday — whether we met live that day or not.',
   },
   {
     n: '04',
-    label: 'THE HANDOFF.',
+    label: 'THE HANDOFF',
     body: 'End-of-sprint demo plus a recorded walkthrough. Yours to keep, replay, and share.',
   },
   {
     n: '05',
-    label: 'YOUR CODE.',
+    label: 'YOUR CODE',
     body: 'Shared repository. Read-and-write access in perpetuity. Yours to host, modify, or walk away with.',
   },
 ]
@@ -78,27 +78,27 @@ const ENVELOPE_STATS = [
 
 const WEEK = [
   {
-    day: 'MONDAY',
+    day: 'MON',
     title: 'SPEC & SKELETON',
     body: 'One-page specification signed by both of us. Skeleton app deployed by end of day.',
   },
   {
-    day: 'TUESDAY',
+    day: 'TUE',
     title: 'CORE BUILD',
     body: 'Data models and primary screens come online.',
   },
   {
-    day: 'WEDNESDAY',
+    day: 'WED',
     title: 'THE CUTOFF',
     body: 'Last day for spec changes. Integration lands. After today, scope is locked.',
   },
   {
-    day: 'THURSDAY',
+    day: 'THU',
     title: 'POLISH',
     body: 'Stabilization. Edge cases. Visual cleanup.',
   },
   {
-    day: 'FRIDAY',
+    day: 'FRI',
     title: 'HANDOFF',
     body: 'Final demo. Recorded walkthrough. The keys are yours.',
   },
@@ -136,8 +136,8 @@ export default function SprintOfferPage() {
             animate="visible"
             className="text-5xl sm:text-6xl lg:text-[3.5rem] xl:text-7xl font-heading font-extrabold text-white leading-tight tracking-[-0.04em] uppercase"
           >
-            Ship Your App In{' '}
-            <span className="text-brand-amber">Five Weekdays.</span>
+            Five Weekdays. One Working{' '}
+            <span className="text-brand-amber">App.</span>
           </motion.h1>
 
           <motion.p
@@ -392,12 +392,14 @@ export default function SprintOfferPage() {
             >
               Apply For A Sprint
             </Button>
-            <Link
-              to="/sprint-intake"
+            <a
+              href="https://docs.google.com/document/d/1S_VcHsSZOKk7Lhd_DfNdk1EHUn7CEGbLhavfhDERx3o/edit"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center text-base font-heading font-bold text-brand-secondary hover:text-brand-amber transition-colors px-2 py-6"
             >
-              Skip ahead — fill the intake form →
-            </Link>
+              Read The Full Agreement →
+            </a>
           </div>
         </div>
       </SectionWrapper>
