@@ -9,6 +9,7 @@ import LoadingScreen from '@/components/layout/LoadingScreen'
 import AnnouncementBar from '@/components/layout/AnnouncementBar'
 import { ContactFormProvider } from '@/hooks/useContactForm'
 import { SmsWaitlistProvider } from '@/hooks/useSmsWaitlist'
+import { SprintSignupProvider } from '@/hooks/useSprintSignup'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -25,15 +26,17 @@ function App() {
         <BrowserRouter>
           <ContactFormProvider>
             <SmsWaitlistProvider>
-              <ScrollToTop />
-              <div className="min-h-screen bg-brand-base flex flex-col">
-                <AnnouncementBar />
-                <Header />
-                <main className="flex-1">
-                  <AnimatedRoutes />
-                </main>
-                <Footer />
-              </div>
+              <SprintSignupProvider>
+                <ScrollToTop />
+                <div className="min-h-screen bg-brand-base flex flex-col">
+                  <AnnouncementBar />
+                  <Header />
+                  <main className="flex-1">
+                    <AnimatedRoutes />
+                  </main>
+                  <Footer />
+                </div>
+              </SprintSignupProvider>
             </SmsWaitlistProvider>
           </ContactFormProvider>
         </BrowserRouter>

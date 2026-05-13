@@ -32,6 +32,22 @@
       <input type="text" name="company" />
       <input type="checkbox" name="consent" />
     </form>
+    <form name="sprint-signup" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+    </form>
+    <form name="sprint-intake" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="project" />
+      <input type="text" name="feature_1" />
+      <input type="text" name="feature_2" />
+      <input type="text" name="feature_3" />
+      <input type="text" name="integration" />
+      <textarea name="csv_imports"></textarea>
+      <textarea name="notes"></textarea>
+    </form>
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

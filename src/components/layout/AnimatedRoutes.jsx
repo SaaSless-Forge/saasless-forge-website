@@ -7,6 +7,8 @@ import ScorecardPlaceholder from '@/pages/ScorecardPlaceholder'
 import Privacy from '@/pages/Privacy'
 import Terms from '@/pages/Terms'
 import SmsSignup from '@/pages/SmsSignup'
+import SprintOfferPage from '@/pages/SprintOfferPage'
+import SprintIntakePage from '@/pages/SprintIntakePage'
 
 export default function AnimatedRoutes() {
   const location = useLocation()
@@ -59,6 +61,22 @@ export default function AnimatedRoutes() {
           element={
             <PageLayout>
               <SmsSignup />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/sprint-offer"
+          element={
+            <PageLayout>
+              <SprintOfferPage />
+            </PageLayout>
+          }
+        />
+        <Route
+          path="/sprint-intake"
+          element={
+            <PageLayout>
+              <SprintIntakePage />
             </PageLayout>
           }
         />
