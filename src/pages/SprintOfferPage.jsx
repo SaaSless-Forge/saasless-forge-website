@@ -124,9 +124,9 @@ export default function SprintOfferPage() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-xs font-heading font-bold uppercase tracking-widest text-brand-amber mb-6"
+            className="text-base sm:text-lg font-heading font-bold uppercase tracking-widest text-brand-amber mb-6"
           >
-            THE FIVE-DAY SPRINT — $250
+            THE FIVE-DAY SPRINT&nbsp;&nbsp;$250
           </motion.p>
 
           <motion.h1
@@ -163,10 +163,6 @@ export default function SprintOfferPage() {
               app. Monday through Friday — five weekdays, fifteen minutes a day
               on the phone with the engineer building it — and by Friday
               afternoon, your software is in your hands.
-            </p>
-            <p>
-              Two hundred fifty dollars, paid before Day 1. No retainer. No
-              upsell. No surprises.
             </p>
           </motion.div>
 
