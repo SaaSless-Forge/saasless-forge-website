@@ -6,12 +6,17 @@ import { Button } from '@/components/ui/button'
 export default function SmsSignup() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [consent, setConsent] = useState(false)
+  const [enrolled, setEnrolled] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setSubmitting(true)
     const form = e.target
     const formData = new FormData(form)
+    // Record consent explicitly so an unticked box is captured as a definite "no"
+    // (unchecked checkboxes are otherwise omitted from the submission entirely).
+    formData.set('consent', consent ? 'yes' : 'no')
 
     await fetch('/', {
       method: 'POST',
@@ -19,6 +24,7 @@ export default function SmsSignup() {
       body: new URLSearchParams(formData).toString(),
     })
 
+    setEnrolled(consent)
     setSubmitted(true)
     setSubmitting(false)
   }
@@ -40,11 +46,12 @@ export default function SmsSignup() {
           {submitted ? (
             <div className="border-2 border-brand-amber bg-brand-surfaceContainer p-8">
               <h2 className="text-2xl font-heading font-bold text-white mb-3">
-                You're signed up.
+                {enrolled ? "You're signed up." : "Thanks — you're all set."}
               </h2>
               <p className="text-brand-secondary leading-relaxed">
-                Thanks — we've recorded your consent and added you to the SaaSless Forge SMS list. You can opt out at
-                any time by replying STOP to any message we send.
+                {enrolled
+                  ? "Thanks — we've recorded your consent and added you to the SaaSless Forge SMS list. You can opt out at any time by replying STOP to any message we send."
+                  : "We've received your details. You didn't opt into SMS notifications — that's completely optional. If you'd like to receive texts later, just come back and tick the box."}
               </p>
             </div>
           ) : (
@@ -132,32 +139,40 @@ export default function SmsSignup() {
               </div>
 
               {/*
-                Consent is captured by the voluntary act of submitting this dedicated opt-in
-                form — not by a separate required checkbox. A `required` consent checkbox is the
-                literal trigger for A2P 10DLC rejection error 30923 ("consent cannot be a required
-                condition for service"), so we disclose the terms inline above the submit button
-                and record consent via a hidden field stamped at submit time.
+                A2P 10DLC-compliant SMS opt-in. The consent checkbox is PRESENT, UNCHECKED by
+                default, and OPTIONAL — the form submits whether or not it is ticked. This
+                simultaneously satisfies error 30925 (a real, non-pre-selected checkbox must
+                exist) and 30923 (consent must not be a required condition of service). SMS
+                consent is recorded only when the box is ticked; handleSubmit stamps an explicit
+                consent=yes/no value so a deliberate "no" is captured too.
               */}
-              <input type="hidden" name="consent" value="agreed-on-submit" />
-
               <div className="border-2 border-brand-outlineVariant bg-brand-surfaceContainer p-5">
-                <p className="text-sm text-brand-secondary leading-relaxed">
-                  By clicking <strong className="text-white">“Sign me up”</strong>, you agree to receive operational SMS
-                  notifications from SaaSless Forge, including project status updates, deployment notifications, billing
-                  notifications, and account or system alerts. Message frequency varies (typically 1–10 messages per
-                  month). Message and data rates may apply. Reply
-                  <strong className="text-white"> STOP</strong> to opt out at any time. Reply
-                  <strong className="text-white"> HELP</strong> for assistance. Consent is not a condition of any
-                  purchase or service. See our{' '}
-                  <Link to="/terms" className="text-brand-amber hover:underline">
-                    Terms of Service
-                  </Link>{' '}
-                  and{' '}
-                  <Link to="/privacy" className="text-brand-amber hover:underline">
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
+                <label htmlFor="signup-consent" className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id="signup-consent"
+                    name="consent"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-1 h-5 w-5 shrink-0 accent-brand-amber"
+                  />
+                  <span className="text-sm text-brand-secondary leading-relaxed">
+                    <strong className="text-white">(Optional)</strong> Yes, send me operational SMS notifications from
+                    SaaSless Forge — project status updates, deployment notifications, billing notifications, and
+                    account or system alerts. Message frequency varies (typically 1–10 messages per month). Message and
+                    data rates may apply. Reply <strong className="text-white">STOP</strong> to opt out at any time.
+                    Reply <strong className="text-white">HELP</strong> for assistance. Consent is not a condition of any
+                    purchase or service. See our{' '}
+                    <Link to="/terms" className="text-brand-amber hover:underline">
+                      Terms of Service
+                    </Link>{' '}
+                    and{' '}
+                    <Link to="/privacy" className="text-brand-amber hover:underline">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </span>
+                </label>
               </div>
 
               <Button
