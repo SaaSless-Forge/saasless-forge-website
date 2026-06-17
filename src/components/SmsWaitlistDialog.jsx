@@ -7,6 +7,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { SMS_SIGNUP_URL } from '@/lib/links'
 
 export function SmsWaitlistDialog({ open, onOpenChange }) {
   const [submitted, setSubmitted] = useState(false)
@@ -41,15 +42,22 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               You're on the list.
             </h3>
             <p className="mt-3 text-muted-foreground">
-              We'll reach out as soon as your account is ready to activate —
-              usually within one business day of carrier approval.
+              Good news — SMS is live, so you don't have to wait. Sign up now and
+              your dedicated number is provisioned in minutes.
             </p>
             <Button
-              onClick={() => handleClose(false)}
-              className="mt-6 bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold"
+              asChild
+              className="mt-6 w-full bg-brand-amber hover:bg-brand-amberHover text-brand-amberDark font-semibold py-6"
             >
-              Close
+              <a href={SMS_SIGNUP_URL}>Sign up now</a>
             </Button>
+            <button
+              type="button"
+              onClick={() => handleClose(false)}
+              className="mt-3 text-xs text-muted-foreground hover:text-white transition-colors"
+            >
+              Maybe later
+            </button>
           </div>
         ) : (
           <>
@@ -169,8 +177,11 @@ export function SmsWaitlistDialog({ open, onOpenChange }) {
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
-                No card required. We'll email you when it's your turn to
-                activate.
+                Or skip the form —{' '}
+                <a href={SMS_SIGNUP_URL} className="text-brand-amber hover:text-brand-amberHover font-semibold underline">
+                  sign up now
+                </a>{' '}
+                and activate today.
               </p>
             </form>
           </>
