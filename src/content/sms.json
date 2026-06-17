@@ -1,14 +1,14 @@
 {
-  "eyebrow": "NEW · JOIN THE WAITLIST",
+  "eyebrow": "NEW · NOW LIVE",
   "headline": "SMS for Your Business,",
   "headlineAccent": "Without the Enterprise Contract.",
-  "description": "Dedicated number, templates, contacts, compliance — all at cost plus a flat margin. We're onboarding a small first batch of customers as carrier approval comes through. Join the list and we'll reach out when your account is ready to activate.",
+  "description": "Dedicated number, templates, contacts, compliance — all at cost plus a flat margin. Sign up, add a card, and your dedicated number is provisioned and ready to send in minutes.",
   "bullets": [
     "Dedicated US phone number, provisioned for you",
     "Templates, contacts, opt-in/opt-out, and full audit log",
     "A2P 10DLC compliance handled by SaaSless Forge",
     "Transparent usage dashboard with monthly budget cap"
   ],
-  "buttonText": "Join the Waitlist",
-  "footnote": "No card required. We'll email you when it's your turn to activate."
+  "buttonText": "Get Started",
+  "footnote": "Card on file for usage. Your dedicated number activates right after signup."
 }

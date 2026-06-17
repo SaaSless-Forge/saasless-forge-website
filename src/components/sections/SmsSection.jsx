@@ -1,12 +1,10 @@
 import { MessageSquare, Check } from 'lucide-react'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { Button } from '@/components/ui/button'
-import { useSmsWaitlist } from '@/hooks/useSmsWaitlist'
+import { SMS_SIGNUP_URL } from '@/lib/links'
 import content from '@/content/sms.json'
 
 export function SmsSection() {
-  const { openSmsWaitlist } = useSmsWaitlist()
-
   return (
     <SectionWrapper id="sms" dark={true} borderTop>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -41,11 +39,11 @@ export function SmsSection() {
           </ul>
 
           <Button
+            asChild
             size="lg"
-            onClick={openSmsWaitlist}
             className="w-full bg-brand-amber text-brand-amberDark hover:bg-brand-amberHover font-bold text-base py-6"
           >
-            {content.buttonText}
+            <a href={SMS_SIGNUP_URL}>{content.buttonText}</a>
           </Button>
 
           <p className="mt-4 text-xs text-muted-foreground text-center">
