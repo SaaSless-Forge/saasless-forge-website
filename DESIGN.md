@@ -93,3 +93,27 @@ In place of standard progress bars, use "The Gauge"—a thick, 8px bar using `su
 - **Philosophy Slides:** Use full-bleed industrial imagery with centered, high-weight text overlays.
 - **Footer/Utility:** Small, uppercase tracking-widest text at the bottom of slides for consistency.
 - **Transitions:** Heavy, linear fades. No bouncy or playful animations.
+
+---
+
+## 8. The Forge Effects Layer (added 2026-07 — "Molten Forge" redesign)
+
+The homepage carries a living-heat layer on top of the Obsidian Forge system.
+Reusable pieces live in `src/components/effects/` and `src/index.css` utilities:
+
+- **EmberCanvas** (`effects/EmberCanvas.jsx`) — rising ember particles (additive
+  blending, ~140 desktop / ~70 mobile). Pauses offscreen and on hidden tabs;
+  renders nothing under `prefers-reduced-motion`.
+- **MagneticButton** (`effects/MagneticButton.jsx`) — primary CTAs pull toward
+  the cursor (max 14px within a 130px radius). Mouse-only.
+- **`.grain`** — film-grain SVG noise overlay (opacity 0.06, blend overlay).
+- **`.text-molten`** — flowing amber gradient for ONE key word per surface
+  (hero "Forged", CTA's last headline word). Never more than one per view.
+- **`.heat-glow`** — animated blurred ember blobs anchored bottom of a section.
+- **`.ember-hover`** — amber glow bloom on primary CTA hover.
+
+### The Heat Exception
+The "no drop shadows" rule stands, with one exception: **light is not shadow**.
+Amber glows (`box-shadow` with amber rgba) are permitted where they read as
+heat coming off an element — CTA hover blooms, the ignited step markers, the
+heat rail. Never use dark/neutral shadows for elevation.

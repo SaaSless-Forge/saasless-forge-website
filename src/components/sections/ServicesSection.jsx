@@ -8,9 +8,9 @@ const icons = [Globe, Wrench, Zap, ArrowRightLeft, Rocket, RefreshCw]
 function ServiceCard({ icon: Icon, title, description, index }) {
   return (
     <div
-      className="group relative bg-brand-surfaceHigh p-8 transition-colors duration-300 hover:bg-brand-surfaceHighest overflow-hidden"
+      className="group relative bg-brand-surfaceHigh p-8 transition-colors duration-300 hover:bg-brand-surfaceHighest overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-[2px] before:bg-gradient-to-r before:from-brand-amberContainer before:via-brand-amber before:to-brand-amberContainer before:opacity-0 before:shadow-[0_0_24px_rgba(255,182,140,0.5)] before:transition-opacity before:duration-300 hover:before:opacity-100"
     >
-      <span className="absolute top-2 right-4 text-6xl font-heading font-extrabold text-white/[0.03] select-none" aria-hidden="true">
+      <span className="absolute top-2 right-4 text-6xl font-heading font-extrabold text-white/[0.03] transition-colors duration-300 group-hover:text-brand-amber/10 select-none" aria-hidden="true">
         {String(index + 1).padStart(2, '0')}
       </span>
       <div className="relative">
