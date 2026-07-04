@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { cn } from '@/lib/utils'
@@ -15,16 +16,23 @@ function StepCard({ number, title, description, index, isLast }) {
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.2, 0, 0, 1] }}
     >
-      {/* Timeline line + dot */}
-      <div className="flex flex-col items-center">
-        <div className="flex items-center justify-center w-14 h-14 bg-brand-amber shrink-0">
-          <span className="text-lg font-heading font-bold text-brand-amberDark">
-            {number}
-          </span>
-        </div>
-        {!isLast && (
-          <div className="w-[2px] flex-1 mt-3 bg-brand-outlineVariant min-h-[40px]" />
+      {/* Step marker — ignites when reached */}
+      <div
+        className={cn(
+          'relative z-10 flex items-center justify-center w-14 h-14 shrink-0 transition-all duration-500',
+          isInView
+            ? 'bg-brand-amber shadow-[0_0_20px_rgba(255,182,140,0.45)]'
+            : 'bg-brand-surfaceHigh border-2 border-brand-outlineVariant'
         )}
+      >
+        <span
+          className={cn(
+            'text-lg font-heading font-bold transition-colors duration-500',
+            isInView ? 'text-brand-amberDark' : 'text-brand-outline'
+          )}
+        >
+          {number}
+        </span>
       </div>
 
       {/* Content */}
@@ -41,6 +49,13 @@ function StepCard({ number, title, description, index, isLast }) {
 }
 
 export function HowItWorksSection() {
+  const railRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: railRef,
+    offset: ['start 0.75', 'end 0.55'],
+  })
+  const heat = useSpring(scrollYProgress, { stiffness: 90, damping: 24 })
+
   return (
     <SectionWrapper id="how-it-works" borderTop>
       <div className="mb-16">
@@ -53,7 +68,18 @@ export function HowItWorksSection() {
         </p>
       </div>
 
-      <div className="max-w-2xl">
+      <div ref={railRef} className="relative max-w-2xl">
+        {/* Cold rail */}
+        <div
+          className="absolute left-[26px] top-0 bottom-0 w-[2px] bg-brand-outlineVariant"
+          aria-hidden="true"
+        />
+        {/* Heat fill — glows down the rail as you scroll */}
+        <motion.div
+          className="absolute left-[26px] top-0 bottom-0 w-[2px] origin-top bg-gradient-to-b from-brand-amberContainer via-brand-amber to-brand-amber shadow-[0_0_16px_rgba(255,182,140,0.6)]"
+          style={{ scaleY: heat }}
+          aria-hidden="true"
+        />
         {content.steps.map((step, index) => (
           <StepCard
             key={step.number}

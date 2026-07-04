@@ -41,7 +41,7 @@ export function SmsSection() {
           <Button
             asChild
             size="lg"
-            className="w-full bg-brand-amber text-brand-amberDark hover:bg-brand-amberHover font-bold text-base py-6"
+            className="ember-hover w-full bg-brand-amber text-brand-amberDark hover:bg-brand-amberHover font-bold text-base py-6"
           >
             <a href={SMS_SIGNUP_URL}>{content.buttonText}</a>
           </Button>
