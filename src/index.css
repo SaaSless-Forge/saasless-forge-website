@@ -60,6 +60,99 @@
   .glass {
     @apply bg-[#2A2A2A] border-2 border-[#444748]/20;
   }
+
+  /* Film grain — subtle animated-feel noise over dark surfaces */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+  }
+
+  /* Flowing molten gradient for a single key headline word */
+  .text-molten {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      100deg,
+      #b46531 0%,
+      #ffb68c 30%,
+      #ffe9dc 50%,
+      #ffb68c 70%,
+      #b46531 100%
+    );
+    background-size: 220% 100%;
+    animation: molten-flow 5.5s linear infinite;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-bottom: 0.1em;
+  }
+
+  /* Animated heat glow — two blurred ember blobs; parent needs overflow-hidden */
+  .heat-glow::before,
+  .heat-glow::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .heat-glow::before {
+    width: 58vw;
+    height: 58vw;
+    left: -12vw;
+    bottom: -30vw;
+    background: radial-gradient(circle, rgba(180, 101, 49, 0.5), transparent 65%);
+    animation: heat-drift-a 9s ease-in-out infinite alternate;
+  }
+  .heat-glow::after {
+    width: 36vw;
+    height: 36vw;
+    right: 2vw;
+    bottom: -14vw;
+    background: radial-gradient(circle, rgba(255, 182, 140, 0.22), transparent 65%);
+    animation: heat-drift-b 7s ease-in-out infinite alternate;
+  }
+
+  /* Ember-glow hover for primary CTAs — the "heat exception" to the no-shadow rule */
+  .ember-hover {
+    transition: box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+  .ember-hover:hover {
+    box-shadow:
+      0 0 0 1px #b46531,
+      0 0 34px rgba(255, 182, 140, 0.45),
+      0 0 90px rgba(180, 101, 49, 0.35);
+  }
+}
+
+@keyframes molten-flow {
+  from { background-position: 0% 0; }
+  to { background-position: 220% 0; }
+}
+
+@keyframes heat-drift-a {
+  from { transform: translateY(0) scale(1); opacity: 0.85; }
+  to { transform: translateY(-6vh) scale(1.12); opacity: 1; }
+}
+
+@keyframes heat-drift-b {
+  from { transform: translateY(2vh) scale(0.95); }
+  to { transform: translateY(-4vh) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-molten,
+  .heat-glow::before,
+  .heat-glow::after {
+    animation: none;
+  }
 }
 
 ::-webkit-scrollbar {
