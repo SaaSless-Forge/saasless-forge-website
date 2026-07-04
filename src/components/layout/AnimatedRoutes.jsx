@@ -1,86 +1,48 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import PageLayout from './PageLayout'
-import Home from '@/pages/Home'
-import About from '@/pages/About'
-import ScorecardPlaceholder from '@/pages/ScorecardPlaceholder'
-import Privacy from '@/pages/Privacy'
-import Terms from '@/pages/Terms'
-import SmsSignup from '@/pages/SmsSignup'
-import SprintOfferPage from '@/pages/SprintOfferPage'
-import SprintIntakePage from '@/pages/SprintIntakePage'
+
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const ScorecardPlaceholder = lazy(() => import('@/pages/ScorecardPlaceholder'))
+const Privacy = lazy(() => import('@/pages/Privacy'))
+const Terms = lazy(() => import('@/pages/Terms'))
+const SmsSignup = lazy(() => import('@/pages/SmsSignup'))
+const SprintOfferPage = lazy(() => import('@/pages/SprintOfferPage'))
+const SprintIntakePage = lazy(() => import('@/pages/SprintIntakePage'))
+
+const pages = [
+  ['/', Home],
+  ['/about', About],
+  ['/scorecard', ScorecardPlaceholder],
+  ['/privacy', Privacy],
+  ['/terms', Terms],
+  ['/sms-signup', SmsSignup],
+  ['/sprint-offer', SprintOfferPage],
+  ['/sprint-intake', SprintIntakePage],
+]
 
 export default function AnimatedRoutes() {
   const location = useLocation()
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageLayout>
-              <Home />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <PageLayout>
-              <About />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/scorecard"
-          element={
-            <PageLayout>
-              <ScorecardPlaceholder />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/privacy"
-          element={
-            <PageLayout>
-              <Privacy />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/terms"
-          element={
-            <PageLayout>
-              <Terms />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/sms-signup"
-          element={
-            <PageLayout>
-              <SmsSignup />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/sprint-offer"
-          element={
-            <PageLayout>
-              <SprintOfferPage />
-            </PageLayout>
-          }
-        />
-        <Route
-          path="/sprint-intake"
-          element={
-            <PageLayout>
-              <SprintIntakePage />
-            </PageLayout>
-          }
-        />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes location={location} key={location.pathname}>
+          {pages.map(([path, Page]) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <PageLayout>
+                  <Page />
+                </PageLayout>
+              }
+            />
+          ))}
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   )
 }

@@ -77,6 +77,7 @@ export function HeroSection() {
           <Button
             variant="outline"
             size="lg"
+            onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
             className="border-2 border-brand-secondary text-brand-secondary hover:bg-brand-surfaceHigh font-semibold text-base px-8 py-6"
           >
             {content.secondaryButtonText}
