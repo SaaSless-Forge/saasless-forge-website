@@ -82,6 +82,13 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t-2 border-brand-outlineVariant/20">
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} SaaSless Forge. All rights reserved.
+            {' · '}
+            <Link
+              to="/zelda"
+              className="text-muted-foreground/60 hover:text-brand-amber transition-colors"
+            >
+              Breath of the Forge
+            </Link>
           </p>
         </div>
       </div>

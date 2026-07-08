@@ -11,6 +11,7 @@ const Terms = lazy(() => import('@/pages/Terms'))
 const SmsSignup = lazy(() => import('@/pages/SmsSignup'))
 const SprintOfferPage = lazy(() => import('@/pages/SprintOfferPage'))
 const SprintIntakePage = lazy(() => import('@/pages/SprintIntakePage'))
+const ZeldaGame = lazy(() => import('@/pages/ZeldaGame'))
 
 const pages = [
   ['/', Home],
@@ -21,6 +22,8 @@ const pages = [
   ['/sms-signup', SmsSignup],
   ['/sprint-offer', SprintOfferPage],
   ['/sprint-intake', SprintIntakePage],
+  ['/zelda', ZeldaGame],
+  ['/game', ZeldaGame],
 ]
 
 export default function AnimatedRoutes() {
