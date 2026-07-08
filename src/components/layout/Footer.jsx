@@ -7,6 +7,7 @@ const quickLinks = [
   { name: 'Scorecard', path: '/scorecard' },
   { name: 'Privacy', path: '/privacy' },
   { name: 'SMS Terms', path: '/terms' },
+  { name: 'Security', path: '/security' },
   { name: 'SMS Updates', path: '/sms-signup' }
 ]
 
