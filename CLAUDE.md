@@ -37,3 +37,37 @@ src/
 - `npm run dev` — Start dev server
 - `npm run build` — Production build
 - `npm run preview` — Preview production build
+
+<!-- SAASLESS-FORGE:GOVERNANCE v3 START -->
+## SaaSless Forge — Architecture Governance (managed; do not edit inside the markers)
+
+This repo is a SaaSless Forge app (App Manager app_id: **24** — "saasless-forge-website").
+SaaSless Forge offers these shared services today: LLM Gateway, SMS (Twilio), Storage (Cloudflare R2), Domains (Cloudflare), Hosting (Render), Database (Render Postgres).
+**Consult the SaaSless Forge platform FIRST for any architecture or infrastructure
+decision.**
+
+Connect Claude Code to the SaaSless Forge MCP server, then use its tools before deciding:
+- `infra_service_guide` — how to set up each supported service.
+- `apps_services_status` (app_id: 24) — what this app already has wired.
+- `service_providers_list` — the providers SaaSless Forge supports.
+
+Rules:
+1. Prefer a SaaSless Forge–supported service (listed above) for every capability.
+   Only choose an external/unsupported service when SaaSless Forge offers **no**
+   option for what you need.
+2. If you must go external, record it as an exception:
+   `architecture_record_component` (app_id: 24, forge_offered: false,
+   rationale: "why no SaaSless Forge option fit").
+3. Log **every** service/architecture decision for this app via
+   `architecture_record_component` so the App Manager holds an authoritative record
+   of what this app uses.
+
+Connect the CLI (ask a SaaSless Forge admin for a Personal Access Token, then run):
+```
+claude mcp add saasless-forge --transport http \
+  --header "Authorization: Bearer <token>" http://localhost:3001/mcp
+```
+
+This block is maintained automatically by SaaSless Forge. Edit around it, never inside
+the markers.
+<!-- SAASLESS-FORGE:GOVERNANCE END -->
