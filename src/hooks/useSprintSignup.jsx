@@ -12,6 +12,9 @@ export function SprintSignupProvider({ children }) {
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (window.localStorage.getItem(STORAGE_KEY)) return
+    // Don't auto-open the popup on the dedicated Sprint funnel pages — those have
+    // their own focused CTA and current pricing.
+    if (window.location.pathname.startsWith('/sprint')) return
 
     const timer = window.setTimeout(() => setOpen(true), AUTO_OPEN_DELAY_MS)
     return () => window.clearTimeout(timer)
