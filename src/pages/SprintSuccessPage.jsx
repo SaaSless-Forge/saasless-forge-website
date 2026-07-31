@@ -45,15 +45,9 @@ export default function SprintSuccessPage() {
           Payment received
         </motion.p>
 
-        <motion.h1
-          custom={1}
-          variants={stamp}
-          initial="hidden"
-          animate="visible"
-          className="font-heading text-4xl font-bold uppercase leading-[1.05] tracking-[-0.03em] text-white sm:text-6xl"
-        >
+        <h1 className="font-heading text-4xl font-bold uppercase leading-[1.05] tracking-[-0.03em] text-white sm:text-6xl">
           You’re in. Your Sprint is <span className="text-molten">booked.</span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           custom={2}

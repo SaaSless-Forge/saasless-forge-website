@@ -106,12 +106,10 @@ export default function SprintPage() {
           </motion.p>
 
           <h1 className="flex flex-col font-heading font-bold uppercase leading-[1.02] tracking-[-0.04em] text-white text-[clamp(2.9rem,10vw,7rem)]">
-            <motion.span custom={1} variants={stamp} initial="hidden" animate="visible">
-              Custom Software,
-            </motion.span>
-            <motion.span custom={2} variants={stamp} initial="hidden" animate="visible">
+            <span>Custom Software,</span>
+            <span>
               <span className="text-molten">Forged</span> in Five Days.
-            </motion.span>
+            </span>
           </h1>
 
           <motion.p
