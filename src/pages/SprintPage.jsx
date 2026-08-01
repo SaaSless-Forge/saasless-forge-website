@@ -7,8 +7,8 @@ import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { pixelPageView, pixelTrack } from '@/lib/metaPixel'
 
 // --- Wire-in values (replaced before the branded domain goes live) ---
-const STRIPE_PAYMENT_LINK = 'STRIPE_PAYMENT_LINK'
-const CALENDAR_LINK = 'CALENDAR_LINK'
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/4gMdR1cvV0Lj2GydOq7ss00'
+const CALENDAR_LINK = 'https://calendly.com/mattperry/sprint-building-intro'
 
 function buyNow() {
   pixelTrack('InitiateCheckout', {

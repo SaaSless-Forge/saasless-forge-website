@@ -6,7 +6,7 @@ import { MagneticButton } from '@/components/effects/MagneticButton'
 import { pixelPageView, pixelTrack } from '@/lib/metaPixel'
 
 // Replaced before the branded domain goes live.
-const CALENDAR_LINK = 'CALENDAR_LINK'
+const CALENDAR_LINK = 'https://calendly.com/mattperry/sprint-building-intro'
 
 const stamp = {
   hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
