@@ -9,6 +9,8 @@ let loaded = false
 
 function ensureLoaded() {
   if (loaded || typeof window === 'undefined') return
+  // Pixel ID not filled in yet — stay a no-op so the page ships cleanly without tracking.
+  if (PIXEL_ID === 'META_PIXEL_ID') return
   loaded = true
   /* eslint-disable */
   !(function (f, b, e, v, n, t, s) {
