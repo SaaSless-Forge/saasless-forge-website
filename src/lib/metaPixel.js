@@ -2,8 +2,8 @@
 // The pixel loads lazily the first time a Sprint page mounts, so the rest of
 // the site is unaffected.
 //
-// TODO: replace META_PIXEL_ID with the real Pixel ID from Meta Events Manager.
-const PIXEL_ID = 'META_PIXEL_ID'
+// Real Pixel ID from Meta Events Manager (SaaSless Forge ad account 663640977025503).
+const PIXEL_ID = '1647306493682347'
 
 let loaded = false
 
