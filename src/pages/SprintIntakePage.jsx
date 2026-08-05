@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { Button } from '@/components/ui/button'
+import { pixelTrack } from '@/lib/metaPixel'
 
 const INPUT_CLASS =
   'w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors'
@@ -98,6 +99,9 @@ export default function SprintIntakePage() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
     })
+
+    // Meta conversion: a completed Sprint application is a Lead.
+    pixelTrack('Lead', { content_name: 'SaaSless Forge Sprint' })
 
     setDisqualified(hasDisqualifier)
     setScreensFlag(tooManyScreens)
