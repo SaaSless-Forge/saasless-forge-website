@@ -128,7 +128,7 @@ export default function SprintIntakePage() {
                   <p>
                     Based on what you described, your project sounds like the
                     kind of work we'd take on outside the five-day sprint
-                    format. That isn't a no — it just isn't a $250 sprint.
+                    format. That isn't a no — it just isn't a $1,000 sprint.
                   </p>
                   <p>
                     We'll be in touch within one business day to discuss a
@@ -531,7 +531,7 @@ equipment`}
                 <p className={SECTION_HEADER_CLASS}>Section 4</p>
                 <h2 className={SECTION_TITLE_CLASS}>Disqualifier Check</h2>
                 <p className="text-sm text-brand-secondary italic leading-relaxed">
-                  The following are always outside a $250 sprint. Some are
+                  The following are always outside a $1,000 sprint. Some are
                   available as separate, larger work. Some we do not build at
                   all. Check anything your project requires so we can be honest
                   with you up front.

@@ -74,12 +74,10 @@ export function SprintSignupModal({ open, onOpenChange }) {
           <>
             <DialogHeader>
               <DialogTitle className="text-2xl font-heading font-bold text-white uppercase tracking-tight">
-                Apply For A Sprint.
+                Own Your Software. Stop Renting It.
               </DialogTitle>
               <DialogDescription className="text-brand-secondary">
-                We take a small number of applicants each week. Tell us who
-                you are — we'll send the intake form and reply within one
-                business day.
+                That subscription that renews whether you use it or not? In five days we build software shaped to your business — and you own every line, outright. No seats, no renewals. Tell us who you are and we’ll send the intake.
               </DialogDescription>
             </DialogHeader>
 
@@ -156,7 +154,7 @@ export function SprintSignupModal({ open, onOpenChange }) {
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
-                Five-day sprint. $250. No retainer.
+                Five-day Sprint · $1,000 flat · You own the code.
               </p>
             </form>
           </>
