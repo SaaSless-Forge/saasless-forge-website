@@ -13,6 +13,7 @@ const SmsSignup = lazy(() => import('@/pages/SmsSignup'))
 const SprintOfferPage = lazy(() => import('@/pages/SprintOfferPage'))
 const SprintIntakePage = lazy(() => import('@/pages/SprintIntakePage'))
 const SprintPage = lazy(() => import('@/pages/SprintPage'))
+const SprintGrowthPage = lazy(() => import('@/pages/SprintGrowthPage'))
 const SprintSuccessPage = lazy(() => import('@/pages/SprintSuccessPage'))
 
 const pages = [
@@ -24,6 +25,7 @@ const pages = [
   ['/security', Security],
   ['/sms-signup', SmsSignup],
   ['/sprint', SprintPage],
+  ['/sprint-growth', SprintGrowthPage],
   ['/sprint-success', SprintSuccessPage],
   ['/sprint-offer', SprintOfferPage],
   ['/sprint-intake', SprintIntakePage],
