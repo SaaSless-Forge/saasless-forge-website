@@ -24,11 +24,56 @@ const steps = [
   ['03', 'Mon–Fri — we build, you own it', 'By Friday you’ll have working software that fits — and it’s yours, outright.'],
 ]
 
+// One Purchase per Stripe checkout session, ever.
+const REPORTED_PURCHASES_KEY = 'sprint-purchases-reported'
+
+function alreadyReported(sessionId) {
+  try {
+    const seen = JSON.parse(window.localStorage.getItem(REPORTED_PURCHASES_KEY) || '[]')
+    return seen.includes(sessionId)
+  } catch {
+    return false
+  }
+}
+
+function markReported(sessionId) {
+  try {
+    const seen = JSON.parse(window.localStorage.getItem(REPORTED_PURCHASES_KEY) || '[]')
+    window.localStorage.setItem(REPORTED_PURCHASES_KEY, JSON.stringify([...seen, sessionId].slice(-20)))
+  } catch {
+    /* private mode — reporting twice beats not reporting at all */
+  }
+}
+
 export default function SprintSuccessPage() {
   useEffect(() => {
     pixelPageView()
-    // This page loads only after a completed Stripe payment.
-    pixelTrack('Purchase', { value: 1000, currency: 'USD', content_name: 'SaaSless Forge Sprint' })
+
+    // The comment this replaces said "this page loads only after a completed Stripe
+    // payment." That was never true — /sprint-success is a plain public route, so a
+    // bookmark, a shared link, or our own QA fires a $1,000 Purchase at Meta. It had
+    // already happened 6 times against 0 real sales, which trains ad delivery on
+    // revenue that does not exist and reports a ROAS we never earned.
+    //
+    // Stripe appends ?session_id={CHECKOUT_SESSION_ID} to the payment link's
+    // confirmation URL, and a session id cannot be guessed — so requiring one is
+    // what makes a reported Purchase correspond to a real checkout.
+    //
+    // NOTE: this is still client-side evidence. It stops accidents, not a determined
+    // forger. Server-verified conversions (retrieve the session, assert
+    // payment_status === 'paid', report via the Conversions API) is the real fix and
+    // belongs with the App Manager integration.
+    const sessionId = new URLSearchParams(window.location.search).get('session_id')
+    if (!sessionId || alreadyReported(sessionId)) return
+
+    markReported(sessionId)
+    pixelTrack(
+      'Purchase',
+      { value: 1000, currency: 'USD', content_name: 'SaaSless Forge Sprint' },
+      // eventID lets Meta de-duplicate against a future server-side Conversions API
+      // event for the same checkout.
+      { eventID: sessionId },
+    )
   }, [])
 
   return (
