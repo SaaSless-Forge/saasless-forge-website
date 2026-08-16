@@ -40,7 +40,15 @@ export function pixelPageView() {
 }
 
 // Buy-button click, purchase, or any standard event.
-export function pixelTrack(event, params) {
+// `options` carries fbq's fourth argument — notably { eventID }, which lets Meta
+// de-duplicate this browser event against the same conversion reported
+// server-side via the Conversions API.
+export function pixelTrack(event, params, options) {
   ensureLoaded()
-  if (window.fbq) window.fbq('track', event, params)
+  if (!window.fbq) return
+  if (options) {
+    window.fbq('track', event, params, options)
+  } else {
+    window.fbq('track', event, params)
+  }
 }
