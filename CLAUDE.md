@@ -38,6 +38,94 @@ src/
 - `npm run build` — Production build
 - `npm run preview` — Preview production build
 
+---
+
+## Marketing campaigns — integrating with SaaSless Forge
+
+A **campaign** (the $1,000 Sprint, the Growth Audit, whatever comes next) is defined in
+SaaSless Forge, not here. It owns the price, the Stripe payment link, the conversion
+values, the revenue split and the pixel id. This site owns the *pages* — the copy and
+layout that differ per ad audience.
+
+**The rule: never retype a campaign fact into this repo. Fetch it.**
+
+That rule exists because of what happened without it. The Sprint price went from $250
+to $1,000, was written in several files, and one was missed — so `/sprint-offer` still
+advertises **$250** while `/sprint` advertises **$1,000**, both live. Separately,
+`/sprint-success` hardcodes `value: 1000, content_name: 'Sprint'`, so any other campaign
+redirecting there reports the wrong conversion to Meta. Both are the same bug: a fact
+with more than one home.
+
+### The API
+
+Base: `https://saasless-forge-app-manager.onrender.com/api/campaigns/v1`
+Public, CORS-enabled, no auth — everything it serves is already public (a price is on
+the page, a pixel id ships in the JS). Secrets are never in it.
+
+| Call | Purpose |
+|---|---|
+| `GET /:slug` | Price, conversion value + name, payment link, success URL, pixel id, status |
+| `POST /:slug/clicks` | Register an arrival, get a token back |
+| `POST /:slug/leads` | Send an application in as a Lead |
+
+A non-`live` campaign returns `{ sellable: false }` with **no price** — render a
+"not currently open" state rather than falling back to a hardcoded number.
+
+### The flow a campaign page implements
+
+1. **On mount** — `GET /:slug`. Render price and copy from the response. Initialise the
+   Meta pixel with `tracking.meta.pixel_id` from the response, not a constant.
+2. **On mount** — `POST /:slug/clicks` with everything the URL carried: `utm_*`,
+   `fbclid`, `gclid`, `ttclid`, `msclkid`, plus `referrer` and `landing_path`. Keep the
+   returned `token`.
+3. **On buy** — send the user to `payment_link_url` with
+   `?client_reference_id=<token>`. That token is what ties the purchase back to the ad
+   that produced it, for **any** channel — Meta, Google, an email blast, a QR code.
+4. **On success** — read `session_id` from the query string. **Only fire `Purchase` if
+   it is present**, and use `conversion.value` / `conversion.content_name` from the API.
+   Pass `session_id` as the fbq `eventID`.
+5. **On an application form** — `POST /:slug/leads` **in addition to** whatever the form
+   already posts (Netlify, etc.). This is additive by design and always returns 200, so
+   it can never cost a submission. Include the `click_token` if you have one.
+
+### Things not to do
+
+- **Don't hardcode a price, a pixel id, a conversion value or a payment link.** All four
+  are served.
+- **Don't fire `Purchase` on page load.** `/sprint-success` is a plain public route —
+  a bookmark or a shared link counts as a sale. Six phantom $1,000 purchases were
+  reported against zero real ones before this was gated.
+- **Don't drop `?session_id=` from the Stripe redirect.** It's what proves a real
+  checkout, and the App Manager reports a `payment_link_redirect_drift` finding if it
+  goes missing.
+- **Don't replace an existing form submission with the Forge one.** Run both.
+
+The App Manager **also** reports purchases server-side from confirmed Stripe payments,
+using the checkout session id as the event id. Meta deduplicates the pair, so the
+browser pixel and the server report are complementary — that's Meta's recommended
+setup, not redundancy.
+
+### If something doesn't work, file it — don't work around it
+
+If the API is missing something you need, returns the wrong shape, or the integration
+can't meet a requirement, **add a roadmap idea to the App Manager** rather than
+hardcoding a workaround here. A workaround in this repo recreates the exact
+multiple-homes problem above.
+
+Use the `saasless-forge` MCP:
+
+```
+ideas_create(
+  client_id: 2,            # Internal Apps
+  app_id: 1,               # saasless-forge-app-manager
+  title: "…",
+  description: "What you needed, what the API does instead, and what it blocked."
+)
+```
+
+Call `ideas_search_similar` first so you extend an existing card instead of adding a
+duplicate. Then say so in the PR, so the gap is visible rather than silently absorbed.
+
 <!-- SAASLESS-FORGE:GOVERNANCE v3 START -->
 ## SaaSless Forge — Architecture Governance (managed; do not edit inside the markers)
 
