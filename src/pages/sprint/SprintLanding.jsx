@@ -99,7 +99,10 @@ export default function SprintLanding({ variant }) {
   }
 
   function scrollToApply() {
-    document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })
+    // Instant jump: smooth scrolling is silently cancelled on this page (the
+    // framer-motion section reveals interrupt an in-flight smooth scroll), so
+    // behavior:'smooth' no-ops. Instant scrollIntoView lands reliably.
+    document.getElementById('apply')?.scrollIntoView({ block: 'start' })
   }
 
   return (
