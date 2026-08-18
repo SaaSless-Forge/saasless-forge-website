@@ -5,6 +5,7 @@ import { EmberCanvas } from '@/components/effects/EmberCanvas'
 import { MagneticButton } from '@/components/effects/MagneticButton'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { pixelPageView, pixelTrack } from '@/lib/metaPixel'
+import { SprintQualifyForm } from '@/components/SprintQualifyForm'
 
 // --- Wire-in values (replaced before the branded domain goes live) ---
 const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/4gMdR1cvV0Lj2GydOq7ss00'
@@ -21,12 +22,10 @@ const stamp = {
 }
 
 // --- Shared content (identical on both pages, per Ben's brief) ---
-const proof = ['You Own The Code', '5-Day Delivery', 'Only 5 Clients / Week', '$0 Subscriptions']
-
 const compare = [
   ['Cost', '~$100,000', '$1,000'],
   ['Timeline', '6 months', '5 days'],
-  ['What you got', "No guarantee you'd even like it when it was done", 'Working software, built to hold up'],
+  ['What you got', "No guarantee you'd even like it when it was done", 'Try software on like clothes'],
   ['Ownership', 'Locked into the developer/vendor', 'Yours outright, forever'],
 ]
 
@@ -99,6 +98,13 @@ export default function SprintLanding({ variant }) {
     window.location.href = STRIPE_PAYMENT_LINK
   }
 
+  function scrollToApply() {
+    // Instant jump: smooth scrolling is silently cancelled on this page (the
+    // framer-motion section reveals interrupt an in-flight smooth scroll), so
+    // behavior:'smooth' no-ops. Instant scrollIntoView lands reliably.
+    document.getElementById('apply')?.scrollIntoView({ block: 'start' })
+  }
+
   return (
     <>
       {/* HERO — headline + subhead per page */}
@@ -139,18 +145,19 @@ export default function SprintLanding({ variant }) {
             <MagneticButton>
               <Button
                 size="lg"
-                onClick={buyNow}
+                onClick={scrollToApply}
                 className="ember-hover bg-brand-amber px-8 py-6 text-base font-semibold text-brand-amberDark hover:bg-brand-amberHover"
               >
-                Start My Sprint — $1,000
+                {variant.ctaLabel}
               </Button>
             </MagneticButton>
-            <a
-              href={CALENDAR_LINK}
+            <button
+              type="button"
+              onClick={buyNow}
               className="font-heading text-base font-semibold text-brand-secondary underline decoration-brand-outline underline-offset-4 hover:text-white"
             >
-              Not ready? Book a 15-min call
-            </a>
+              Ready now? Buy your Sprint
+            </button>
           </motion.div>
         </div>
 
@@ -178,52 +185,60 @@ export default function SprintLanding({ variant }) {
 
       {/* TRUST BLOCK — per page */}
       <SectionWrapper id="trust" borderTop>
-        <blockquote className="mx-auto max-w-4xl border-l-4 border-brand-amber pl-6 font-heading text-xl font-medium leading-relaxed text-brand-secondary sm:pl-8 sm:text-2xl">
-          {variant.trustBlock}
+        <blockquote className="mx-auto max-w-4xl space-y-5 border-l-4 border-brand-amber pl-6 font-heading text-xl font-medium leading-relaxed text-brand-secondary sm:pl-8 sm:text-2xl">
+          {variant.trustBlock.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
         </blockquote>
       </SectionWrapper>
 
-      {/* PROOF STRIP — shared credibility band */}
-      <section className="border-t border-brand-outlineVariant bg-brand-surface">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-6 sm:px-6 lg:px-8">
-          {proof.map((item, i) => (
-            <div key={item} className="flex items-center gap-8">
-              {i > 0 && <span className="hidden text-brand-outline sm:inline" aria-hidden="true">·</span>}
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-amber">
-                {item}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* PROOF STRIP — real social proof (client testimonials, logos/stats, and Matt's
+          photo) goes here per Ben's brief. Awaiting those assets from Matt; the old
+          redundant credibility band was removed rather than left duplicating the hero
+          strip below. */}
 
-      {/* WHAT'S INCLUDED — shared */}
+      {/* WHAT YOU GET — Page 1 shows real builds; Page 2 keeps the shared scope list */}
       <SectionWrapper id="included" borderTop>
         <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-brand-amber">
-          What you get
+          {variant.builds ? 'What owners have built' : 'What you get'}
         </p>
         <h2 className="max-w-3xl font-heading text-3xl font-bold uppercase leading-tight tracking-[-0.02em] text-white sm:text-4xl">
-          One clear scope. Delivered in a week.
+          {variant.builds ? 'Real software, built in a week.' : 'One clear scope. Delivered in a week.'}
         </h2>
         <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A Sprint is a focused, fixed build. We agree on exactly what we’re making, lock it, and
-          ship it — no scope creep, no mystery, no surprise invoice.
+          {variant.builds
+            ? 'A few examples of what business owners have walked away with after a single five-day Sprint.'
+            : 'A Sprint is a focused, fixed build. We agree on exactly what we’re making, lock it, and ship it — no scope creep, no mystery, no surprise invoice.'}
         </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {included.map(([num, title, body]) => (
-            <div key={num} className="relative overflow-hidden bg-brand-surfaceHigh p-8">
-              <span className="pointer-events-none absolute -right-2 -top-4 select-none font-heading text-7xl font-bold text-white/[0.04]">
-                {num}
-              </span>
-              <h3 className="relative font-heading text-xl font-bold uppercase tracking-[-0.01em] text-white">
-                {title}
-              </h3>
-              <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </div>
-          ))}
-        </div>
+        {variant.builds ? (
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {variant.builds.map(([title, body]) => (
+              <div key={title} className="bg-brand-surfaceHigh p-8">
+                <h3 className="font-heading text-xl font-bold uppercase tracking-[-0.01em] text-white">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {included.map(([num, title, body]) => (
+              <div key={num} className="relative overflow-hidden bg-brand-surfaceHigh p-8">
+                <span className="pointer-events-none absolute -right-2 -top-4 select-none font-heading text-7xl font-bold text-white/[0.04]">
+                  {num}
+                </span>
+                <h3 className="relative font-heading text-xl font-bold uppercase tracking-[-0.01em] text-white">
+                  {title}
+                </h3>
+                <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </SectionWrapper>
+
 
       {/* HOW THE WEEK MOVES — shared */}
       <SectionWrapper id="how" dark={false} borderTop>
@@ -296,6 +311,22 @@ export default function SprintLanding({ variant }) {
           Software this fast to build is fast to change. If a Sprint isn’t landing right, we’re not
           six months and $100K deep — we adjust and try again.
         </p>
+      </SectionWrapper>
+
+      {/* QUALIFYING FORM — Ben's GHL form; the primary lead-gen path every CTA leads to */}
+      <SectionWrapper id="apply" borderTop>
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-brand-amber">
+          Start here
+        </p>
+        <h2 className="max-w-3xl font-heading text-3xl font-bold uppercase leading-tight tracking-[-0.02em] text-white sm:text-4xl">
+          Tell us what you’re imagining.
+        </h2>
+        <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Three quick questions. We’ll follow up to set a 15-minute call and see if a Sprint fits.
+        </p>
+        <div className="mx-auto mt-10 max-w-2xl">
+          <SprintQualifyForm />
+        </div>
       </SectionWrapper>
 
       {/* PRICE / BUY — shared */}
@@ -396,10 +427,10 @@ export default function SprintLanding({ variant }) {
             <MagneticButton>
               <Button
                 size="lg"
-                onClick={buyNow}
+                onClick={scrollToApply}
                 className="ember-hover bg-brand-amber px-8 py-6 text-base font-semibold text-brand-amberDark hover:bg-brand-amberHover"
               >
-                Start My Sprint — $1,000
+                {variant.ctaLabel}
               </Button>
             </MagneticButton>
           </div>
