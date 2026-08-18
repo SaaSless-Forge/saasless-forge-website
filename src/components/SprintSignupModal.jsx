@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LeadSourceFields } from '@/components/LeadSourceFields'
 import { Link } from 'react-router-dom'
 import {
   Dialog,
@@ -96,6 +97,8 @@ export function SprintSignupModal({ open, onOpenChange }) {
                 </label>
               </p>
 
+              <LeadSourceFields />
+
               <div>
                 <label
                   htmlFor="sprint-name"
@@ -132,6 +135,23 @@ export function SprintSignupModal({ open, onOpenChange }) {
 
               <div>
                 <label
+                  htmlFor="sprint-phone"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
+                >
+                  Phone
+                </label>
+                <input
+                  type="tel"
+                  id="sprint-phone"
+                  name="phone"
+                  required
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+
+              <div>
+                <label
                   htmlFor="sprint-company"
                   className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
                 >
@@ -143,6 +163,22 @@ export function SprintSignupModal({ open, onOpenChange }) {
                   name="company"
                   className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors"
                   placeholder="Acme Co."
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="sprint-project"
+                  className="block text-xs font-heading font-bold uppercase tracking-widest text-white/80 mb-2"
+                >
+                  What do you have in mind?
+                </label>
+                <textarea
+                  id="sprint-project"
+                  name="project"
+                  rows={3}
+                  className="w-full border-0 border-b-2 border-brand-outline bg-brand-surfaceHighest px-4 py-3 text-white placeholder-brand-outline/50 focus:border-brand-amber focus:outline-none focus:ring-0 transition-colors resize-none"
+                  placeholder="A sentence or two about the software you want."
                 />
               </div>
 
