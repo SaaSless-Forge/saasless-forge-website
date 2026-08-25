@@ -2,7 +2,13 @@
 // The pixel loads lazily the first time a Sprint page mounts, so the rest of
 // the site is unaffected.
 //
-// Real Pixel ID from Meta Events Manager (SaaSless Forge ad account 663640977025503).
+// Real Pixel ID from Meta Events Manager.
+//
+// The SaaSless Forge ad account is 1546419312980583 (verified in Ads Manager,
+// business portfolio "SaaSless Forge" — it holds exactly one ad account, and
+// the H-series Sprint ads run from it). A previous comment here named account
+// 663640977025503, which matches nothing reachable from that portfolio; it was
+// most likely typed from memory. Recorded so the next person doesn't chase it.
 const PIXEL_ID = '1647306493682347'
 
 let loaded = false
