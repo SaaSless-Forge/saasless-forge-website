@@ -5,11 +5,13 @@ import { EmberCanvas } from '@/components/effects/EmberCanvas'
 import { MagneticButton } from '@/components/effects/MagneticButton'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { pixelPageView, pixelTrack } from '@/lib/metaPixel'
+import { registerClick, withClickToken } from '@/lib/campaign'
 import { SprintQualifyForm } from '@/components/SprintQualifyForm'
 
 // --- Wire-in values (replaced before the branded domain goes live) ---
 const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/4gMdR1cvV0Lj2GydOq7ss00'
 const CALENDAR_LINK = 'https://calendly.com/mattperry/sprint-building-intro'
+const CAMPAIGN_SLUG = 'sprint'
 
 const stamp = {
   hidden: { opacity: 0, y: 48, filter: 'blur(6px)' },
@@ -87,6 +89,9 @@ function Check() {
 export default function SprintLanding({ variant }) {
   useEffect(() => {
     pixelPageView()
+    // Register the arrival with SaaSless Forge so this visit is attributable to
+    // the ad that produced it. Best-effort: never awaited, never blocks render.
+    registerClick(CAMPAIGN_SLUG)
   }, [])
 
   function buyNow() {
@@ -95,7 +100,9 @@ export default function SprintLanding({ variant }) {
       currency: 'USD',
       content_name: variant.pixelName,
     })
-    window.location.href = STRIPE_PAYMENT_LINK
+    // Carry the click token through to Stripe so the purchase ties back to the
+    // ad. Falls through to the bare link if no token was issued.
+    window.location.href = withClickToken(STRIPE_PAYMENT_LINK)
   }
 
   function scrollToApply() {
