@@ -6,7 +6,15 @@ import { MagneticButton } from '@/components/effects/MagneticButton'
 import { SectionWrapper } from '@/components/sections/SectionWrapper'
 import { pixelPageView, pixelTrack } from '@/lib/metaPixel'
 import { registerClick, withClickToken } from '@/lib/campaign'
-import { SprintQualifyForm } from '@/components/SprintQualifyForm'
+import { SprintQualifyForm, QUALIFY_IFRAME_ID } from '@/components/SprintQualifyForm'
+import { getLeadSource } from '@/lib/leadSource'
+import {
+  track,
+  setDimensions,
+  observeScrollDepth,
+  observeSections,
+  observeIframeEngagement,
+} from '@/lib/analytics'
 
 // --- Wire-in values (replaced before the branded domain goes live) ---
 const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/4gMdR1cvV0Lj2GydOq7ss00'
@@ -92,9 +100,35 @@ export default function SprintLanding({ variant }) {
     // Register the arrival with SaaSless Forge so this visit is attributable to
     // the ad that produced it. Best-effort: never awaited, never blocks render.
     registerClick(CAMPAIGN_SLUG)
-  }, [])
 
-  function buyNow() {
+    // Stamp the ad that produced this visit onto every later event, so any
+    // behaviour below can be sliced by ad, placement or page variant.
+    const src = getLeadSource()
+    setDimensions({
+      variant: variant.slug,
+      placement: src.utm_source || null,
+      ad_id: src.utm_content || null,
+      adset_id: src.utm_term || null,
+      campaign_id: src.utm_campaign || null,
+    })
+
+    const stopScroll = observeScrollDepth()
+    const stopSections = observeSections([
+      'trust', 'included', 'how', 'price-anchor', 'apply', 'price', 'faq',
+    ])
+    const stopForm = observeIframeEngagement(QUALIFY_IFRAME_ID, 'form_start', {
+      form: 'sprint-qualify',
+    })
+
+    return () => {
+      stopScroll()
+      stopSections()
+      stopForm()
+    }
+  }, [variant.slug])
+
+  function buyNow(source) {
+    track('cta_click', { cta_id: 'buy-now', section: source, destination: 'stripe' })
     pixelTrack('InitiateCheckout', {
       value: 1000,
       currency: 'USD',
@@ -105,7 +139,8 @@ export default function SprintLanding({ variant }) {
     window.location.href = withClickToken(STRIPE_PAYMENT_LINK)
   }
 
-  function scrollToApply() {
+  function scrollToApply(source) {
+    track('cta_click', { cta_id: 'apply', section: source, destination: '#apply' })
     // Instant jump: smooth scrolling is silently cancelled on this page (the
     // framer-motion section reveals interrupt an in-flight smooth scroll), so
     // behavior:'smooth' no-ops. Instant scrollIntoView lands reliably.
@@ -152,7 +187,7 @@ export default function SprintLanding({ variant }) {
             <MagneticButton>
               <Button
                 size="lg"
-                onClick={scrollToApply}
+                onClick={() => scrollToApply('hero')}
                 className="ember-hover bg-brand-amber px-8 py-6 text-base font-semibold text-brand-amberDark hover:bg-brand-amberHover"
               >
                 {variant.ctaLabel}
@@ -160,7 +195,7 @@ export default function SprintLanding({ variant }) {
             </MagneticButton>
             <button
               type="button"
-              onClick={buyNow}
+              onClick={() => buyNow('hero')}
               className="font-heading text-base font-semibold text-brand-secondary underline decoration-brand-outline underline-offset-4 hover:text-white"
             >
               Ready now? Buy your Sprint
@@ -380,7 +415,7 @@ export default function SprintLanding({ variant }) {
             <MagneticButton>
               <Button
                 size="lg"
-                onClick={buyNow}
+                onClick={() => buyNow('price')}
                 className="ember-hover mt-8 w-full bg-brand-amber px-8 py-7 text-base font-semibold text-brand-amberDark hover:bg-brand-amberHover"
               >
                 Buy My Sprint — $1,000
@@ -434,7 +469,7 @@ export default function SprintLanding({ variant }) {
             <MagneticButton>
               <Button
                 size="lg"
-                onClick={scrollToApply}
+                onClick={() => scrollToApply('final-cta')}
                 className="ember-hover bg-brand-amber px-8 py-6 text-base font-semibold text-brand-amberDark hover:bg-brand-amberHover"
               >
                 {variant.ctaLabel}
