@@ -6,6 +6,10 @@ import { useEffect } from 'react'
 const FORM_ID = '0ZEUk8wen2x57BqLhDDr'
 const EMBED_SCRIPT = 'https://link.msgsndr.com/js/form_embed.js'
 
+// Exported so page instrumentation can watch this frame for engagement without
+// duplicating the id. See lib/analytics.js -> observeIframeEngagement.
+export const QUALIFY_IFRAME_ID = `inline-${FORM_ID}`
+
 export function SprintQualifyForm() {
   useEffect(() => {
     // Load GHL's embed script once (it auto-resizes the iframe to fit content).
@@ -20,7 +24,7 @@ export function SprintQualifyForm() {
     <iframe
       src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
       title="Meta Ads Form"
-      id={`inline-${FORM_ID}`}
+      id={QUALIFY_IFRAME_ID}
       data-form-id={FORM_ID}
       data-layout-iframe-id={`inline-${FORM_ID}`}
       data-form-name="Meta Ads Form"
