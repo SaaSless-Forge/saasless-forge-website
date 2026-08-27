@@ -9,7 +9,6 @@ const ScorecardPlaceholder = lazy(() => import('@/pages/ScorecardPlaceholder'))
 const Privacy = lazy(() => import('@/pages/Privacy'))
 const Terms = lazy(() => import('@/pages/Terms'))
 const Security = lazy(() => import('@/pages/Security'))
-const SmsSignup = lazy(() => import('@/pages/SmsSignup'))
 const SprintOfferPage = lazy(() => import('@/pages/SprintOfferPage'))
 const SprintIntakePage = lazy(() => import('@/pages/SprintIntakePage'))
 const SprintPage = lazy(() => import('@/pages/SprintPage'))
@@ -23,7 +22,6 @@ const pages = [
   ['/privacy', Privacy],
   ['/terms', Terms],
   ['/security', Security],
-  ['/sms-signup', SmsSignup],
   ['/sprint', SprintPage],
   ['/sprint-growth', SprintGrowthPage],
   ['/sprint-success', SprintSuccessPage],
