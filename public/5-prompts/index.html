@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>5 Prompts to Crush AI as a Business Owner — SaaSless Forge</title>
+<meta name="description" content="Five plain-English prompts that turn AI into a real assistant — running your calendar and inbox from your phone. About 10 minutes to set up." />
+<link rel="canonical" href="https://saaslessforge.com/5-prompts" />
+
+<!-- Open Graph / link previews -->
+<meta property="og:title" content="5 Prompts to Crush AI as a Business Owner" />
+<meta property="og:description" content="Five plain-English prompts that turn AI into a real assistant — running your calendar and inbox from your phone. About 10 minutes to set up." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://saaslessforge.com/5-prompts" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --surface-lowest:#0E0E0E; --surface:#131313; --surface-low:#1C1B1B;
+    --surface-container:#201F1F; --surface-high:#2A2A2A; --surface-highest:#353534;
+    --amber:#FFB68C; --amber-hover:#FFDBC9; --amber-container:#B46531; --amber-dark:#532200;
+    --fg-0:#FFFFFF; --fg-1:#C8C6C6; --fg-2:rgba(200,198,198,0.72); --fg-3:#8E9192;
+    --outline-variant:#444748;
+    --font-heading:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --font-body:'Inter',ui-sans-serif,system-ui,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    --grad-brushed-steel:linear-gradient(45deg,#353534 0%,#0E0E0E 100%);
+    --grad-ember:linear-gradient(135deg,#FFB68C 0%,#FFDBC9 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--surface);color:var(--fg-1);
+    font-family:var(--font-body);font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--font-heading);color:var(--fg-0);text-transform:uppercase}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--grad-brushed-steel);border-top:4px solid var(--amber);
+    border-bottom:2px solid var(--outline-variant);
+    padding:64px 0 64px;position:relative;overflow:hidden;text-align:center}
+  .hero .wrap{max-width:760px;position:relative;z-index:1}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 340px at 50% -10%,rgba(255,182,140,0.16),transparent 70%);pointer-events:none}
+  .brandbar{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+  .brandmark{height:30px;width:auto;display:block}
+  .brandname{font-family:var(--font-heading);font-weight:700;letter-spacing:.2em;
+    font-size:12px;text-transform:uppercase;color:var(--fg-1)}
+  .eyebrow{font-family:var(--font-heading);font-weight:600;letter-spacing:.2em;
+    font-size:12px;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
+  h1{font-size:clamp(2.4rem,6vw,3.5rem);font-weight:700;letter-spacing:-0.04em;line-height:0.98}
+  h1 .ember{background:var(--grad-ember);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:1.05rem;color:var(--fg-2);max-width:540px;margin:22px auto 0}
+  .meta{display:flex;gap:44px;margin-top:36px;flex-wrap:wrap;justify-content:center}
+  .meta div{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.14em;
+    font-size:11px;color:var(--fg-3)}
+  .meta b{display:block;font-size:22px;letter-spacing:-0.02em;color:var(--fg-0);margin-bottom:4px}
+
+  /* ---------- INTRO ---------- */
+  .intro{padding:52px 0 8px;text-align:center}
+  .intro p{color:var(--fg-1);font-size:1.05rem;max-width:640px;margin:0 auto}
+  .intro .how{margin:26px auto 0;max-width:640px;border-top:2px solid var(--amber-container);
+    padding:18px 20px 0;background:transparent}
+  .intro .how b{color:var(--fg-0)}
+
+  /* ---------- SETUP BOX ---------- */
+  .setup{max-width:820px;margin:36px auto 0;border:2px solid var(--outline-variant);
+    background:var(--surface-container)}
+  .setup .top{background:var(--surface-high);border-bottom:2px solid var(--outline-variant);
+    padding:16px 28px}
+  .setup .top .label{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.16em;
+    font-size:11px;color:var(--amber)}
+  .setup .top h3{font-size:1.25rem;letter-spacing:-0.01em;margin-top:8px}
+  .setup .body{padding:22px 28px}
+  .setup ol{margin:0;padding-left:20px;color:var(--fg-1);font-size:.98rem;line-height:1.7}
+  .setup ol li{margin-bottom:8px}
+  .setup ol li b{color:var(--fg-0)}
+  .setup .fine{margin-top:16px;padding-top:14px;border-top:1px solid var(--outline-variant);
+    font-size:.82rem;color:var(--fg-3)}
+
+  /* ---------- PROMPT CARD ---------- */
+  .card{margin:40px auto;border:2px solid var(--outline-variant);background:var(--surface-container)}
+  .card-head{padding:24px 28px 22px;border-bottom:2px solid var(--outline-variant);background:var(--surface-high)}
+  .num{font-family:var(--font-heading);font-weight:700;letter-spacing:.2em;font-size:12px;color:var(--amber)}
+  .card-head h3{font-size:1.5rem;letter-spacing:-0.02em;margin-top:8px;line-height:1.1}
+  .card-head .does{text-transform:none;font-family:var(--font-body);color:var(--fg-2);
+    font-size:.95rem;margin-top:8px;font-weight:400;letter-spacing:0}
+  .needs{display:inline-block;margin-top:16px;font-family:var(--font-heading);text-transform:uppercase;
+    letter-spacing:.14em;font-size:10px;color:var(--amber);border:2px solid var(--amber-container);padding:5px 10px}
+
+  .section-tag{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.16em;
+    font-size:11px;color:var(--fg-3);padding:20px 28px 0}
+  .output{margin:12px 28px 0;background:var(--surface-lowest);border:2px solid var(--outline-variant);
+    padding:20px 22px}
+  .output .who{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.12em;
+    font-size:10px;color:var(--amber);margin-bottom:8px}
+  .output .line{color:var(--fg-1);font-size:.98rem;margin:0}
+
+  .promptwrap{margin:20px 28px 28px}
+  .promptbar{display:flex;justify-content:space-between;align-items:center;
+    background:var(--surface-high);border:2px solid var(--outline-variant);border-bottom:0;padding:10px 16px}
+  .promptbar span{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.16em;
+    font-size:11px;color:var(--fg-1)}
+  .copybtn{font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.12em;font-size:11px;
+    background:var(--amber);color:var(--amber-dark);border:0;padding:7px 14px;cursor:pointer;font-weight:700}
+  .copybtn:hover{background:var(--amber-hover)}
+  .copybtn.done{background:var(--surface-highest);color:var(--amber)}
+  pre.prompt{font-family:var(--font-mono);font-size:.9rem;line-height:1.6;color:var(--fg-0);
+    background:var(--surface-lowest);border:2px solid var(--outline-variant);
+    padding:20px 22px;white-space:pre-wrap;word-wrap:break-word}
+
+  /* ---------- CTA ---------- */
+  .cta{background:var(--grad-brushed-steel);border-top:2px solid var(--outline-variant);
+    border-bottom:2px solid var(--outline-variant);margin-top:64px;padding:64px 0;text-align:center}
+  .cta h2{font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:-0.03em}
+  .cta p{color:var(--fg-2);max-width:540px;margin:18px auto 0}
+  .btn{display:inline-block;margin-top:30px;background:var(--amber);color:var(--amber-dark);
+    font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.12em;font-weight:700;
+    font-size:14px;padding:16px 34px;text-decoration:none;border:2px solid var(--amber)}
+  .btn:hover{background:var(--amber-hover);border-color:var(--amber-hover)}
+  footer{padding:40px 0 56px;text-align:center;color:var(--fg-3);font-size:12px;
+    font-family:var(--font-heading);text-transform:uppercase;letter-spacing:.16em}
+  footer a{color:var(--fg-1);text-decoration:none}
+  footer a:hover{color:var(--amber)}
+
+  @media print{
+    body{background:#fff;color:#111}
+    .hero,.cta{background:#111 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .copybtn{display:none}
+    .card,.setup{break-inside:avoid;border-color:#bbb}
+    a{color:#111}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar"><svg class="brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" aria-label="SaaSless Forge"><g fill="#F4F1EE"><rect x="40" y="60" width="120" height="48"></rect><rect x="92" y="108" width="16" height="100"></rect></g><circle cx="200" cy="32" r="7" fill="#FFB68C"></circle><ellipse cx="200" cy="32" rx="11.9" ry="2.24" fill="none" stroke="#FFB68C" stroke-width="2" transform="rotate(-22 200 32)"></ellipse><circle cx="214.7" cy="26.05" r="2" fill="#FFB68C"></circle><circle cx="185.3" cy="37.95" r="2" fill="#FFB68C"></circle></svg><span class="brandname">SaaSless&nbsp;Forge</span></div>
+    <div class="eyebrow">The 10-Minute Upgrade for Busy Owners</div>
+    <h1>5 Prompts to Crush AI<br><span class="ember">as a Business Owner</span></h1>
+    <p class="sub">Connect the email and calendar you already use. Then run your day by just asking — from your phone, in plain English. No new apps. No forms to fill in.</p>
+    <div class="meta">
+      <div><b>5</b>Prompts inside</div>
+      <div><b>~10 min</b>One-time setup</div>
+      <div><b>Your phone</b>Works anywhere</div>
+    </div>
+  </div>
+</header>
+
+<section class="intro wrap">
+  <p>Each one works the same way. You'll see <b>what the assistant hands back</b>, then <b>the exact words you say</b> to make it happen. Say them out loud or type them — on your phone or your laptop.</p>
+  <div class="how"><b>First, turn it on.</b> It takes about two minutes, once. The steps are right below.</div>
+</section>
+
+<section class="wrap">
+  <div class="setup">
+    <div class="top">
+      <div class="label">Before you start</div>
+      <h3>Turn It On — About 2 Minutes, Once</h3>
+    </div>
+    <div class="body">
+      <ol>
+        <li>Open <b>Claude</b> (the app on your phone, or claude.ai), go to <b>Settings</b>, and find <b>Connectors</b>.</li>
+        <li>Connect <b>Google Calendar</b>. Sign in with the Google account you use for work and approve access.</li>
+        <li>Do the same for <b>Gmail</b>. That's it — now Claude can see your schedule and your inbox, but only when you ask.</li>
+      </ol>
+      <div class="fine">Needs a paid Claude plan. Your accounts stay yours — Claude only looks when you ask it to, and never sends or books anything without showing you first.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="card wrap">
+  <div class="card-head">
+    <div class="num">Prompt 01</div>
+    <h3>See Your Whole Day</h3>
+    <div class="does">Ask once, get your day back in plain English — without opening the calendar app.</div>
+    <span class="needs">Needs · Google Calendar</span>
+  </div>
+  <div class="section-tag">↓ What it hands you</div>
+  <div class="output">
+    <div class="who">Claude</div>
+    <p class="line">You've got 3 today — 9:00 Miller furnace job, 1:00 estimate downtown at 5th &amp; Main, 4:00 callback with Sarah Reyes. Your morning's tight; you're open after 2.</p>
+  </div>
+  <div class="promptwrap">
+    <div class="promptbar"><span>What you say</span><button class="copybtn" onclick="copyPrompt(this)">Copy</button></div>
+    <pre class="prompt">What's on my calendar today? Give me the short version.</pre>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="card wrap">
+  <div class="card-head">
+    <div class="num">Prompt 02</div>
+    <h3>Book It By Asking</h3>
+    <div class="does">Make an appointment without tapping through a single screen.</div>
+    <span class="needs">Needs · Google Calendar</span>
+  </div>
+  <div class="section-tag">↓ What it hands you</div>
+  <div class="output">
+    <div class="who">Claude</div>
+    <p class="line">Done — "Estimate: Tom Bradley" is on your calendar Thursday, 2:00–2:45pm. Want me to send Tom a confirmation too?</p>
+  </div>
+  <div class="promptwrap">
+    <div class="promptbar"><span>What you say</span><button class="copybtn" onclick="copyPrompt(this)">Copy</button></div>
+    <pre class="prompt">Book Tom Bradley for an estimate this Thursday at 2pm, 45 minutes.</pre>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="card wrap">
+  <div class="card-head">
+    <div class="num">Prompt 03</div>
+    <h3>Find the Time and Schedule It</h3>
+    <div class="does">Let it find the gap you didn't know you had — and lock it in for you.</div>
+    <span class="needs">Needs · Google Calendar</span>
+  </div>
+  <div class="section-tag">↓ What it hands you</div>
+  <div class="output">
+    <div class="who">Claude</div>
+    <p class="line">You're free Wednesday at 10:30 or Friday at 8:30am. I've penciled in "Call supplier" for Wednesday 10:30 — say the word and I'll confirm it.</p>
+  </div>
+  <div class="promptwrap">
+    <div class="promptbar"><span>What you say</span><button class="copybtn" onclick="copyPrompt(this)">Copy</button></div>
+    <pre class="prompt">Find me 30 free minutes this week to call my supplier, and put it on my calendar.</pre>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="card wrap">
+  <div class="card-head">
+    <div class="num">Prompt 04</div>
+    <h3>Catch Up on Your Inbox</h3>
+    <div class="does">Skip the 40 unread. Get the two that actually need you.</div>
+    <span class="needs">Needs · Gmail</span>
+  </div>
+  <div class="section-tag">↓ What it hands you</div>
+  <div class="output">
+    <div class="who">Claude</div>
+    <p class="line">Two need you: Karen Mills wants to reschedule Friday's job, and a supplier invoice is due Monday. The rest is newsletters and receipts — nothing urgent.</p>
+  </div>
+  <div class="promptwrap">
+    <div class="promptbar"><span>What you say</span><button class="copybtn" onclick="copyPrompt(this)">Copy</button></div>
+    <pre class="prompt">Go through my inbox and tell me only what actually needs me today.</pre>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="card wrap">
+  <div class="card-head">
+    <div class="num">Prompt 05</div>
+    <h3>The One That Feels Like Magic</h3>
+    <div class="does">Email and calendar, working together, from one sentence.</div>
+    <span class="needs">Needs · Gmail + Google Calendar</span>
+  </div>
+  <div class="section-tag">↓ What it hands you</div>
+  <div class="output">
+    <div class="who">Claude</div>
+    <p class="line">Jenna asked for a Tuesday appointment. You're open Tuesday at 11. I've booked "Consult: Jenna Ortiz" and drafted a reply confirming 11:00 — want me to send it?</p>
+  </div>
+  <div class="promptwrap">
+    <div class="promptbar"><span>What you say</span><button class="copybtn" onclick="copyPrompt(this)">Copy</button></div>
+    <pre class="prompt">Someone emailed asking for a Tuesday appointment. If I'm free, book it and draft a reply to confirm.</pre>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>This Is the Do-It-Yourself Version</h2>
+    <p>Now imagine it wired straight into your business — booking jobs, chasing quotes, answering customers — running without you asking. That's what we build.</p>
+    <a class="btn" href="https://api.leadconnectorhq.com/widget/booking/u0wSPzZVJgBrSJFjuSLR" target="_blank" rel="noopener">Book a Free Look →</a>
+  </div>
+</section>
+
+<footer>SaaSless Forge · Custom software for growing businesses · <a href="https://saaslessforge.com">saaslessforge.com</a></footer>
+
+<script>
+function copyPrompt(btn){
+  const pre = btn.closest('.card').querySelector('pre.prompt');
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
+    const old = btn.textContent;
+    btn.textContent = 'Copied'; btn.classList.add('done');
+    setTimeout(()=>{btn.textContent = old; btn.classList.remove('done');},1800);
+  });
+}
+</script>
+</body>
+</html>
