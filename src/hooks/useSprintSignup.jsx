@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { SprintSignupModal } from '@/components/SprintSignupModal'
 
 const STORAGE_KEY = 'sprint-signup-seen'
-const AUTO_OPEN_DELAY_MS = 600
+// Wait 13s before auto-opening so visitors have a moment on the page first.
+const AUTO_OPEN_DELAY_MS = 13000
 
 const SprintSignupContext = createContext()
 
