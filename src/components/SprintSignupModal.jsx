@@ -43,7 +43,7 @@ export function SprintSignupModal({ open, onOpenChange }) {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="bg-brand-surfaceContainer border-2 border-brand-outlineVariant sm:max-w-md">
+      <DialogContent className="bg-brand-surfaceContainer border-2 border-brand-outlineVariant sm:max-w-md max-h-[90vh] overflow-y-auto">
         {submitted ? (
           <div className="text-center py-6">
             <h3 className="text-2xl font-heading font-bold text-white uppercase tracking-tight">
